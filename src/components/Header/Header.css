@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    background-color: blue;
+    font-family: Arial, sans-serif;
+}
+
+.headline, .header-item {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.headline {
+    font-weight: normal;
+    padding: 20px 50px 20px;
+}
+
+.header-item {
+    list-style: none;
+    padding: 20px 15px;
+}
