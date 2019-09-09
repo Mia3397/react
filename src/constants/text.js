@@ -1,6 +1,5 @@
-const menu = {
+export default {
     title: 'My header',
     menuItems: ['Home', 'Posts', 'Contact']
-};
+}
 
-export default menu;
