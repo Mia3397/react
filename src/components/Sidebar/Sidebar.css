@@ -1,25 +1,17 @@
-html, body, #root {
-    height: 100%;
-}
-
-#root {
-    overflow: hidden;
-}
 aside {
-    position: relative;
-    height: calc(100% - 63px);
-}
-ul {
-    border-right: 1px solid #b4afa4;
-    height: calc(100% - 41px);
+    height: calc(100vh - 63px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #fff9e9;
+    border-right: 1px solid #b4afa4;
 }
 
-.open ul {
+aside.open {
     width: 200px;
 }
 
-.close ul {
+aside.close {
     width: 50px;
 }
 
@@ -34,9 +26,10 @@ aside a {
 aside a:hover {
     color: #dfdad0;
 }
-input {
-    position: absolute;
+
+aside button {
     height: 40px;
+    width: 100%;
     border-right: 1px solid #b4afa4;
     border-top: 1px solid #b4afa4;
     box-sizing: content-box;
@@ -46,11 +39,5 @@ input {
     cursor: pointer;
 }
 
-.open > input {
-    width: 200px;
-}
 
-.close > input {
-    width: 50px;
-}
 

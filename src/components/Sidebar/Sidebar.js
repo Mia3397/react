@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import text from '../../constants/text';
+import React, {Component} from 'react';
+import Utils from '../../constants/utils';
 import './Sidebar.css';
 
 class Sidebar extends Component {
@@ -7,28 +7,32 @@ class Sidebar extends Component {
         isOpen: false,
     };
 
-    changeIsOpen = () =>
+    toggleStateSidebar = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
+    };
+
+    renderList = () => (
+        Utils.sidebarItems.map(it => (
+            <li key={it.title}>
+                <a>
+                    {it.title}
+                </a>
+            </li>
+        ))
+    );
 
     render() {
-        let isOpen = this.state.isOpen;
+        const {isOpen} = this.state;
         return (
             <aside className={isOpen ? 'open' : 'close'}>
                 <ul>
-                {
-                    isOpen ? (text.sidebarItems.map(title => (
-                        <li key={title}>
-                            <a>
-                                {title}
-                            </a>
-                        </li>
-                        )
-                    )) : ''
-                }
+                    {isOpen && this.renderList()}
                 </ul>
-                <input type='button' value={ isOpen ? '<< Collapse Sidebar' : '>>'}  onClick={this.changeIsOpen}/>
+                <button onClick={this.toggleStateSidebar}>
+                    {isOpen ? '<< Collapse Sidebar' : '>>'}
+                </button>
             </aside>
         );
     }
