@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './App.css';
 import './constants/text';
-import { Header } from './components';
+import { Header, Sidebar } from './components';
 
-const App = () => (
-    <Header />
-);
+const App = () => {
+
+    return (
+        <Fragment>
+            <Header/>
+            <Sidebar />
+        </Fragment>);
+
+};
 
 export default App;

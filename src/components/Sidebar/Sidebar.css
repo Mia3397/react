@@ -1,0 +1,56 @@
+html, body, #root {
+    height: 100%;
+}
+
+#root {
+    overflow: hidden;
+}
+aside {
+    position: relative;
+    height: calc(100% - 63px);
+}
+ul {
+    border-right: 1px solid #b4afa4;
+    height: calc(100% - 41px);
+    background-color: #fff9e9;
+}
+
+.open ul {
+    width: 200px;
+}
+
+.close ul {
+    width: 50px;
+}
+
+aside a {
+    display: inline-block;
+    width: 160px;
+    padding: 10px 20px;
+    color: #b4afa4;
+    cursor: pointer;
+}
+
+aside a:hover {
+    color: #dfdad0;
+}
+input {
+    position: absolute;
+    height: 40px;
+    border-right: 1px solid #b4afa4;
+    border-top: 1px solid #b4afa4;
+    box-sizing: content-box;
+    background-color: #000045;
+    color: #ffedef;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.open > input {
+    width: 200px;
+}
+
+.close > input {
+    width: 50px;
+}
+
