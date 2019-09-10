@@ -1,0 +1,43 @@
+aside {
+    height: calc(100vh - 63px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff9e9;
+    border-right: 1px solid #b4afa4;
+}
+
+aside.open {
+    width: 200px;
+}
+
+aside.close {
+    width: 50px;
+}
+
+aside a {
+    display: inline-block;
+    width: 160px;
+    padding: 10px 20px;
+    color: #b4afa4;
+    cursor: pointer;
+}
+
+aside a:hover {
+    color: #dfdad0;
+}
+
+aside button {
+    height: 40px;
+    width: 100%;
+    border-right: 1px solid #b4afa4;
+    border-top: 1px solid #b4afa4;
+    box-sizing: content-box;
+    background-color: #000045;
+    color: #ffedef;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+

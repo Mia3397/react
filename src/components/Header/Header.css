@@ -1,16 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 .header {
     display: flex;
-    background-color: blue;
-    font-family: Arial, sans-serif;
+    background-color: #000045;
 }
 
 .headline, .header-item {
-    color: white;
+    color: #ffedef;
     font-size: 20px;
     cursor: pointer;
 }
