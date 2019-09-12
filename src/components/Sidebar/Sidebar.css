@@ -15,16 +15,23 @@ aside.close {
     width: 50px;
 }
 
-aside a {
+aside ul a {
     display: inline-block;
     width: 160px;
     padding: 10px 20px;
     color: #b4afa4;
     cursor: pointer;
+    border-bottom: 1px solid #b4afa4;
+    box-sizing: content-box;
 }
 
 aside a:hover {
     color: #dfdad0;
+}
+
+aside .active-link {
+    border-right: 2px solid #000045;
+    width: 158px;
 }
 
 aside button {

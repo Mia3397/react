@@ -1,15 +1,19 @@
 const sidebarItems = [
     {
-        title: 'Repositories'
+        title: 'Repositories',
+        path: '/repositories'
     },
     {
-        title: 'Notes'
+        title: 'Notes',
+        path: '/notes'
     },
     {
-        title: 'Price'
+        title: 'Price',
+        path: '/price'
     },
     {
-        title: 'Chart'
+        title: 'Chart',
+        path: '/chart'
     }
 ];
 
