@@ -10,7 +10,6 @@ const App = () => (
         <Header/>
         <main>
             <Sidebar/>
-            <Route path="/" exact component={Repositories}/>
             <Route path="/repositories" component={Repositories}/>
             <Route path="/chart" component={Chart}/>
             <Route path="/price" component={Price}/>

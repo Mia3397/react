@@ -15,7 +15,8 @@ aside.close {
     width: 50px;
 }
 
-aside li {
+aside ul a {
+    display: inline-block;
     width: 160px;
     padding: 10px 20px;
     color: #b4afa4;
@@ -24,11 +25,11 @@ aside li {
     box-sizing: content-box;
 }
 
-aside li:hover {
+aside a:hover {
     color: #dfdad0;
 }
 
-aside li:active {
+aside .active-link {
     border-right: 2px solid #000045;
     width: 158px;
 }

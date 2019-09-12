@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Utils from '../../constants/utils';
 import './Sidebar.css';
 
@@ -16,11 +16,9 @@ class Sidebar extends Component {
 
     renderList = () => (
         Utils.sidebarItems.map(it => (
-            <Link to={it.path}>
-                <li key={it.title}>
-                    {it.title}
-                </li>
-            </Link>
+            <NavLink to={it.path} key={it.title} activeClassName="active-link">
+                {it.title}
+            </NavLink>
         ))
     );
 
