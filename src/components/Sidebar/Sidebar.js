@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import Utils from '../../constants/utils';
 import './Sidebar.css';
 
 class Sidebar extends Component {
     state = {
-        isOpen: false,
+        isOpen: true,
     };
 
     toggleStateSidebar = () => {
@@ -15,11 +16,11 @@ class Sidebar extends Component {
 
     renderList = () => (
         Utils.sidebarItems.map(it => (
-            <li key={it.title}>
-                <a>
+            <Link to={it.path}>
+                <li key={it.title}>
                     {it.title}
-                </a>
-            </li>
+                </li>
+            </Link>
         ))
     );
 
