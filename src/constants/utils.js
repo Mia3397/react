@@ -1,20 +1,14 @@
 const sidebarItems = [
     {
-        title: 'Repositories',
-        path: '/repositories'
+        title: 'Jobs',
+        path: '/jobs',
+        iconType: 'desktop'
     },
     {
-        title: 'Notes',
-        path: '/notes'
+        title: 'Analytics',
+        path: '/analytics',
+        iconType: 'line-chart'
     },
-    {
-        title: 'Price',
-        path: '/price'
-    },
-    {
-        title: 'Chart',
-        path: '/chart'
-    }
 ];
 
 export default {

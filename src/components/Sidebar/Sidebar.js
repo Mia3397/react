@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import Utils from '../../constants/utils';
+import {Icon} from 'antd/es';
 import './Sidebar.css';
 
 class Sidebar extends Component {
@@ -14,10 +15,11 @@ class Sidebar extends Component {
         });
     };
 
-    renderList = () => (
+    renderList = (isOpen) => (
         Utils.sidebarItems.map(it => (
-            <NavLink to={it.path} key={it.title} activeClassName="active-link">
-                {it.title}
+            <NavLink to={it.path} key={it.title} activeClassName="active-link" className="link">
+                <Icon type={it.iconType} />
+                {isOpen && it.title}
             </NavLink>
         ))
     );
@@ -27,10 +29,11 @@ class Sidebar extends Component {
         return (
             <aside className={isOpen ? 'open' : 'close'}>
                 <ul>
-                    {isOpen && this.renderList()}
+                    {this.renderList(isOpen)}
                 </ul>
                 <button onClick={this.toggleStateSidebar}>
-                    {isOpen ? '<< Collapse Sidebar' : '>>'}
+                    <Icon type={isOpen ? "double-left" : "double-right"}/>
+                    {isOpen && 'Collapse Sidebar' }
                 </button>
             </aside>
         );
