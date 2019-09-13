@@ -1,11 +1,10 @@
 main {
     display: flex;
 }
-main div {
+main .wrapper {
     width: 100%;
-    background-color: #fff9e9;
 }
-main div h1 {
+main .wrapper h1 {
     text-align: center;
     color: #000045;
 }

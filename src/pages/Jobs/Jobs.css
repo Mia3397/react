@@ -1,0 +1,19 @@
+.wrapper {
+    padding: 30px;
+}
+
+.ant-btn {
+    height: 40px;
+    width: 130px;
+}
+
+.ant-btn-primary {
+    background-color: #000045;
+    color: #ffedef;
+    border: 0;
+}
+
+.ant-input-affix-wrapper {
+    margin-bottom: 20px;
+}
+
