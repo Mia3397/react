@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './Jobs.css';
 import {Button, Input, Modal, Icon} from 'antd/es';
+import text from '../../constants/text';
+import './Jobs.css';
 
 class Jobs extends Component {
     state = {
@@ -16,7 +17,7 @@ class Jobs extends Component {
     };
 
     onChange = ({target}) => {
-        let {name, value} = target;
+        const {name, value} = target;
         this.setState({
             [name]: value,
         });
@@ -37,9 +38,8 @@ class Jobs extends Component {
         });
     };
 
-
     render() {
-        const {language, region} = this.state;
+        const {language, region, visible} = this.state;
         return (
             <div className="wrapper">
                 <Button type="primary" onClick={this.showModal}>
@@ -47,15 +47,14 @@ class Jobs extends Component {
                 </Button>
                 <Modal
                     title="Filter"
-                    visible={this.state.visible}
-                    onApply={this.handleApply}
+                    visible={visible}
                     onCancel={this.handleCancel}
                     footer={[
                         <Button type="back" onClick={this.handleCancel}>
-                            Cancel
+                            {text.modalCancel}
                         </Button>,
                         <Button type="primary" onClick={this.handleApply}>
-                            Apply
+                            {text.modalApply}
                         </Button>
                     ]}
                 >
