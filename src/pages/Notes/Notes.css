@@ -1,0 +1,18 @@
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title h2 {
+    text-decoration: underline;
+    color: #000045;
+}
+.title span {
+    color: #b4afa4;
+    font-size: 12px;
+}
+
+.note p {
+    color: #000045;
+}

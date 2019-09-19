@@ -4,11 +4,13 @@ const initialState = {
     isOpen: false,
 };
 
-export default function reducer(state = initialState, action) {
-    switch (action.type) {
-        case TOGGLE_STATE:
-            return { isOpen: !state.isOpen };
-        default:
-            return state
-    }
-}
+const handleReducer = {
+    [TOGGLE_STATE]: (state) => ({
+        ...state,
+        isOpen: !state.isOpen
+    }),
+};
+
+const reducer = (state = initialState, action) => handleReducer[action.type] ? handleReducer[action.type](state) : handleReducer;
+
+export default reducer;

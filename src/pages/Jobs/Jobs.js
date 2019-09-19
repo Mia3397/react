@@ -42,6 +42,7 @@ class Jobs extends Component {
         const {language, region, visible} = this.state;
         return (
             <div className="wrapper">
+                <h1>Jobs</h1>
                 <Button type="primary" onClick={this.showModal}>
                     Filter
                 </Button>

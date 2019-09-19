@@ -4,7 +4,8 @@ const text =  {
         menuItems: ['Home', 'Posts', 'Contact']
     },
     modalApply: 'Apply',
-    modalCancel: 'Cancel'
+    modalCancel: 'Cancel',
+    modalAdd: 'Add'
 };
 
 export default text;

@@ -9,6 +9,11 @@ const sidebarItems = [
         path: '/analytics',
         iconType: 'line-chart'
     },
+    {
+        title: 'Notes',
+        path: '/notes',
+        iconType: 'form'
+    }
 ];
 
 export default {

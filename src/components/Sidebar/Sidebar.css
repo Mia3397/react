@@ -1,5 +1,5 @@
 aside {
-    height: calc(100vh - 81px);
+    height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
