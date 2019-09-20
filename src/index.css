@@ -42,7 +42,7 @@ code {
   width: 130px;
 }
 
-.ant-btn-primary {
+button.ant-btn.ant-btn-primary {
   background-color: #000045;
   color: #ffedef;
   border: 0;

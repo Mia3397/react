@@ -1,18 +1,31 @@
-.title {
+.wrapper > button {
+    margin-bottom: 20px;
+}
+
+.note {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff9e9;
+}
+
+.note header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
-.title h2 {
+.note header h2 {
     text-decoration: underline;
     color: #000045;
 }
-.title span {
+.note header > span {
     color: #b4afa4;
     font-size: 12px;
 }
 
-.note p {
+.note div {
     color: #000045;
+    width: 100%;
+    word-break: break-all;
 }

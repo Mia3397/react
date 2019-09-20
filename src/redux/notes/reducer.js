@@ -1,4 +1,4 @@
-import {ADD_NOTE} from "./types"
+import {ADD_NOTE, DELETE_NOTE} from "./types";
 
 const initialState = {
     notes: [],
@@ -9,6 +9,9 @@ const handleReducer = {
         ...state,
         notes: [...state.notes, payload]
     }),
+    [DELETE_NOTE]: (state, {payload}) => ({
+        notes: [...state.notes.filter(it => it.id !== payload)]
+    })
 };
 
 const reducer = (state = initialState, action) => {
