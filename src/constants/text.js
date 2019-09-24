@@ -5,7 +5,8 @@ const text =  {
     },
     modalApply: 'Apply',
     modalCancel: 'Cancel',
-    modalAdd: 'Add'
+    modalAdd: 'Add',
+    buttonDelete: 'Delete'
 };
 
 export default text;

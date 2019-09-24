@@ -3,7 +3,6 @@ import {Button, Input, Modal} from 'antd/es';
 import connect from './connect';
 import text from '../../constants/text';
 import './Notes.css';
-const nanoid = require('nanoid');
 
 class Notes extends Component {
     state = {
@@ -32,7 +31,7 @@ class Notes extends Component {
         });
     };
 
-    deleteNote = (id) => this.props.deleteNote(id);
+    deleteNote = (id) => () => this.props.deleteNote(id);
 
     onChange = ({target}) => {
         const {name, value} = target;
@@ -40,8 +39,7 @@ class Notes extends Component {
         this.setState({
             currentNote: {
                 ...currentNote,
-                [name]: value,
-                id: nanoid()
+                [name]: value
             }
         })
     };
@@ -96,7 +94,7 @@ class Notes extends Component {
                                     <h2>{note.title}</h2>
                                     <span>{note.date}</span>
                                 </div>
-                                <Button type="primary" onClick={() => this.deleteNote(note.id)}>Delete</Button>
+                                <Button type="primary" onClick={this.deleteNote(note.id)}>{text.buttonDelete}</Button>
                             </header>
                             <div>{note.text}</div>
                         </div>

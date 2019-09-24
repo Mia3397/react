@@ -1,7 +1,9 @@
-import {ADD_NOTE, DELETE_NOTE} from "./types";
+import {ADD_NOTE, UPDATE_NOTE} from "./types";
+
+const localNotes = localStorage.getItem('notes');
 
 const initialState = {
-    notes: [],
+    notes: localNotes ? JSON.parse(localNotes) : []
 };
 
 const handleReducer = {
@@ -9,8 +11,9 @@ const handleReducer = {
         ...state,
         notes: [...state.notes, payload]
     }),
-    [DELETE_NOTE]: (state, {payload}) => ({
-        notes: [...state.notes.filter(it => it.id !== payload)]
+    [UPDATE_NOTE]: (state, {payload}) => ({
+        ...state,
+        notes: payload
     })
 };
 
