@@ -33,6 +33,10 @@ code {
     monospace;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 .wrapper {
   padding: 30px;
 }
@@ -48,8 +52,13 @@ button.ant-btn.ant-btn-primary {
   border: 0;
 }
 
-.ant-input-affix-wrapper, .ant-modal-body > .ant-input {
+.ant-input-affix-wrapper,
+.ant-modal-body > .ant-input,
+.ant-select {
   margin-bottom: 20px;
 }
 
+.ant-select {
+  width: 100%;
+}
 

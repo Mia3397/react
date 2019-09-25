@@ -1,21 +1,44 @@
-const sidebarItems = [
+const utils = {
+    sidebarItems: [
+        {
+            title: 'Users',
+            path: '/users',
+            iconType: 'user'
+        },
+        {
+            title: 'Analytics',
+            path: '/analytics',
+            iconType: 'line-chart'
+        },
+        {
+            title: 'Notes',
+            path: '/notes',
+            iconType: 'form'
+        }
+    ],
+    userTableColumns: [
     {
-        title: 'Jobs',
-        path: '/jobs',
-        iconType: 'desktop'
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name'
     },
     {
-        title: 'Analytics',
-        path: '/analytics',
-        iconType: 'line-chart'
+        title: 'Surname',
+        key: 'surname',
+        dataIndex: 'surname'
     },
     {
-        title: 'Notes',
-        path: '/notes',
-        iconType: 'form'
+        title: 'Gender',
+        key: 'gender',
+        dataIndex: 'gender'
+    },
+    {
+        title: 'Region',
+        key: 'region',
+        dataIndex: 'region'
     }
-];
 
-export default {
-    sidebarItems
-};
+]};
+
+export default utils;
+

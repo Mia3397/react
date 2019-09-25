@@ -1,0 +1,12 @@
+.ant-table-header, .ant-table-thead > tr > th {
+    background-color: #fff9e9;
+}
+
+.ant-table-placeholder {
+    border-top: 1px solid #b4afa4;
+    border-bottom: 1px solid #b4afa4;
+}
+
+.ant-table-column-title, .ant-table-row > td {
+    color: #000045;
+}
