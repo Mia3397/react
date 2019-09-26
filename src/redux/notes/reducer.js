@@ -17,9 +17,9 @@ const handleReducer = {
     })
 };
 
-const reducer = (state = initialState, action) => {
+const notesReducer = (state = initialState, action) => {
     const handler = handleReducer[action.type];
     return handler ? handler(state, action) : state;
 };
 
-export default reducer;
+export default notesReducer;

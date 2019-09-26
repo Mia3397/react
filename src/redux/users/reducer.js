@@ -1,19 +1,19 @@
-import { UPDATE_DATA } from './types';
+import { UPDATE_USERS } from './types';
 
 const initialState = {
-    data: []
+    users: []
 };
 
 const handleReducer = {
-    [UPDATE_DATA]: (state, {payload}) => ({
+    [UPDATE_USERS]: (state, {payload}) => ({
             ...state,
-            data: [...payload]
+            users: [...payload]
         })
 };
 
-const reducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
     const handler = handleReducer[action.type];
     return handler ? handler(state, action) : state;
 };
 
-export default reducer;
+export default usersReducer;

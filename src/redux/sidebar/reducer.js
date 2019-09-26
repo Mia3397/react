@@ -11,6 +11,6 @@ const handleReducer = {
     }),
 };
 
-const reducer = (state = initialState, action) => handleReducer[action.type] ? handleReducer[action.type](state) : handleReducer;
+const sidebarReducer = (state = initialState, action) => handleReducer[action.type] ? handleReducer[action.type](state) : handleReducer;
 
-export default reducer;
+export default sidebarReducer;

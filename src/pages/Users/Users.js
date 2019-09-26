@@ -8,8 +8,8 @@ import './Users.css';
 class Users extends Component {
     state = {
         params: {
-            gender: '',
-            region: '',
+            gender: null,
+            region: null,
             amount: 25
         },
         visible: false
@@ -26,7 +26,8 @@ class Users extends Component {
     };
 
     onChange = (elem) => {
-        let name, value = '';
+        let name = '';
+        let value = '';
         typeof elem === 'string' ? ([name, value] = ['gender', elem]) : ({name, value} = elem.target);
         this.setState({
             params: {
@@ -39,25 +40,25 @@ class Users extends Component {
     handleApply = () => {
         this.setState({
             visible: false
-        }, this.getData(this.state.params));
+        });
+        this.getData(this.state.params)
     };
 
     handleCancel = () => {
         this.setState({
             visible: false,
             params: {
-                gender: '',
-                region: ''
+                gender: null,
+                region: null
             }
         });
     };
 
-    getData = (params) => () => this.props.getData(params);
+    getData = (params) => this.props.getData(params);
 
     render() {
         const {params: {gender, region}, visible} = this.state;
-        const {data} = this.props;
-        const {Option} = Select;
+        const {users} = this.props;
 
         return (
             <div className="wrapper">
@@ -86,8 +87,8 @@ class Users extends Component {
                     key="gender"
                     value={gender || text.placeholderForGenderSelect}
                     >
-                        <Option key={text.genderMale} value={text.genderMale}>{text.genderMale}</Option>
-                        <Option key={text.genderMale} value={text.genderFemale}>{text.genderFemale}</Option>
+                        <Select.Option key={text.genderMale} value={text.genderMale}>{text.genderMale}</Select.Option>
+                        <Select.Option key={text.genderMale} value={text.genderFemale}>{text.genderFemale}</Select.Option>
                     </Select>
                     <Input
                         placeholder="Region"
@@ -97,7 +98,11 @@ class Users extends Component {
                         key="region"
                     />
                 </Modal>
-                <Table columns={utils.userTableColumns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 300 }}/>
+                <Table
+                    columns={utils.userTableColumns}
+                    dataSource={users}
+                    scroll={{ y: 300 }}
+                />
             </div>
         )
     }

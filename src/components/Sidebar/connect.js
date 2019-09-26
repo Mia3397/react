@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {toggleStateSideBar} from '../../redux/sidebar/actions';
 
 const mapStateToProps = (state) => ({
-    isOpen: state.sidebar.isOpen
+    isOpen: state.sidebarReducer.isOpen
 });
 
 const mapDispatchToProps = (dispatch) => ({

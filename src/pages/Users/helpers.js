@@ -1,8 +1,7 @@
 import * as action from '../../redux/users/actions';
-import api from "./api";
+import getUsers from "../../methods/getUsers";
 
 export const getData = (params) => async(dispatch) => {
-    const data = await api.getNames(params);
-    const arrayOfUsers = data.data;
-    dispatch(action.updateUsersData(arrayOfUsers))
+    const {data} = await getUsers(params);
+    dispatch(action.updateUsersData(data))
 };

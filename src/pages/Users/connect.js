@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {getData} from './helpers';
 
 const mapStateToProps = (state) => ({
-        data: state.users.data
+        users: state.usersReducer.users
 });
 
 const mapDispatchToProps = {
