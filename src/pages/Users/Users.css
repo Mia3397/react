@@ -11,6 +11,10 @@
     color: #000045;
 }
 
+.ant-table-wrapper th, td {
+    width: 176px;
+}
+
 .ant-spin-dot-item {
     background-color: #000045;
 }
