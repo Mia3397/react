@@ -21,9 +21,7 @@ class Users extends Component {
     }
 
     showModal = () => {
-        this.setState({
-            visible: true
-        })
+        this.setState({ visible: true })
     };
 
     onChange = (elem) => {
@@ -38,11 +36,9 @@ class Users extends Component {
         });
     };
 
-    handleApply = () => {
-        this.setState({
-            visible: false
-        });
-        this.getData(this.state.params)
+    handleApply = async () => {
+        this.setState({visible: false});
+        await this.getData(this.state.params)
     };
 
     handleCancel = () => {
@@ -55,13 +51,10 @@ class Users extends Component {
         });
     };
 
-    getData = (params) => {
-        this.setState({
-            loading: true
-        });
-        this.props.getData(params);
-        setTimeout(()=> this.setState({ loading: false }), 1000)
-
+    getData = async (params) => {
+        this.setState({loading: true});
+        await this.props.getData(params);
+        this.setState({loading: false});
     };
 
     render() {
