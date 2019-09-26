@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Input, Modal, Select, Table} from 'antd/es';
+import {Button, Input, Modal, Select, Table, Spin} from 'antd/es';
 import connect from './connect';
 import text from '../../constants/text';
 import utils from '../../constants/utils';
@@ -12,7 +12,8 @@ class Users extends Component {
             region: null,
             amount: 25
         },
-        visible: false
+        visible: false,
+        loading: false
     };
 
     componentDidMount() {
@@ -54,14 +55,22 @@ class Users extends Component {
         });
     };
 
-    getData = (params) => this.props.getData(params);
+    getData = (params) => {
+        this.setState({
+            loading: true
+        });
+        this.props.getData(params);
+        setTimeout(()=> this.setState({ loading: false }), 1000)
+
+    };
 
     render() {
-        const {params: {gender, region}, visible} = this.state;
+        const {params: {gender, region}, visible, loading} = this.state;
         const {users} = this.props;
 
         return (
             <div className="wrapper">
+                <Spin spinning={loading}>
                 <h1>Users</h1>
                 <Button type="primary" onClick={this.showModal} key="filterButton" >
                     Filter
@@ -103,6 +112,7 @@ class Users extends Component {
                     dataSource={users}
                     scroll={{ y: 300 }}
                 />
+                </Spin>
             </div>
         )
     }

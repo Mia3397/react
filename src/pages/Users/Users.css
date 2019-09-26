@@ -10,3 +10,7 @@
 .ant-table-column-title, .ant-table-row > td {
     color: #000045;
 }
+
+.ant-spin-dot-item {
+    background-color: #000045;
+}

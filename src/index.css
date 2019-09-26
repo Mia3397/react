@@ -54,7 +54,7 @@ button.ant-btn.ant-btn-primary {
 
 .ant-input-affix-wrapper,
 .ant-modal-body > .ant-input,
-.ant-select {
+.ant-select, .ant-btn {
   margin-bottom: 20px;
 }
 
