@@ -11,11 +11,13 @@
   font-family: Arial, sans-serif;
 }
 
-html, body, #root {
-  height: 100%;
-}
+/*html, body, #root {*/
+/*  height: 100%;*/
+/*  width: 100%;*/
+/*}*/
 
 #root {
+  height: 100%;
   overflow: hidden;
 }
 
@@ -37,13 +39,25 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-.wrapper {
+main {
+  display: flex;
+  height: 100%;
+}
+
+main .wrapper {
+  width: 100%;
   padding: 30px;
+  overflow-y: scroll;
+  margin-bottom: 70px;
+}
+
+main .wrapper h1 {
+  text-align: center;
+  color: #000045;
 }
 
 .ant-btn {
   height: 40px;
-  width: 130px;
 }
 
 button.ant-btn.ant-btn-primary {

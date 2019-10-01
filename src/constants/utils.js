@@ -14,6 +14,11 @@ const utils = {
             title: 'Notes',
             path: '/notes',
             iconType: 'form'
+        },
+        {
+            title: 'Music',
+            path: '/music',
+            iconType: 'customer-service'
         }
     ],
     userTableColumns: [

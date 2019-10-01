@@ -94,7 +94,9 @@ class Notes extends Component {
                                     <h2>{note.title}</h2>
                                     <span>{note.date}</span>
                                 </div>
-                                <Button type="primary" onClick={this.deleteNote(note.id)}>{text.buttonDelete}</Button>
+                                <Button type="primary" onClick={this.deleteNote(note.id)}>
+                                    {text.buttonDelete}
+                                </Button>
                             </header>
                             <div>{note.text}</div>
                         </div>

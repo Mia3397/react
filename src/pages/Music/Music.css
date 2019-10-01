@@ -1,0 +1,14 @@
+.ant-input-search {
+    width: 400px;
+}
+
+.ant-input {
+    height: 40px;
+}
+
+.cards {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

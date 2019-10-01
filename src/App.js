@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import './App.css';
 import './constants/text';
 import {Header, Sidebar} from './components';
-import {Users, Analytics, Notes} from './pages';
+import {Users, Analytics, Notes, Music} from './pages';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import store from './redux/index';
 
@@ -20,6 +20,7 @@ const App = () => (
                 <Route path="/users" component={Users}/>
                 <Route path="/analytics" component={Analytics}/>
                 <Route path="/notes" component={Notes}/>
+                <Route path="/music" component={Music}/>
             </main>
         </Router>
     </Provider>
