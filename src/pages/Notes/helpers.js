@@ -20,3 +20,14 @@ export const deleteNote = (id) => (dispatch, getState) => {
     localStorage.setItem('notes', JSON.stringify(updateNotes));
     dispatch(action.updateNote(updateNotes));
 };
+
+export const saveNote = (id, note) => (dispatch, getState) => {
+    const {notes} = getState().notesReducer;
+    const noteWithId = R.find(R.propEq('id', id))(notes);
+    const newNote = R.mergeDeepRight(noteWithId, note);
+    const noteIndex = R.indexOf(noteWithId, notes);
+    notes[noteIndex] = newNote;
+    localStorage.setItem('notes', JSON.stringify(notes));
+    dispatch(action.updateNote(notes));
+
+};

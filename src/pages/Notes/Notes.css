@@ -15,16 +15,22 @@
     align-items: center;
 }
 
-.note header h2 {
+.note .title > h2 {
     text-decoration: underline;
     color: #000045;
 }
-.note header > span {
+.note .title > span {
     color: #b4afa4;
     font-size: 12px;
 }
 
-.note div {
+.note-updater {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note > div {
     color: #000045;
     width: 100%;
     word-break: break-all;

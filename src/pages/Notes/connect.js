@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {addNote, deleteNote} from './helpers'
+import {addNote, deleteNote, saveNote} from './helpers'
 
 const mapStateToProps = (state) => ({
     notes: state.notesReducer.notes
@@ -7,7 +7,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     addNote,
-    deleteNote
+    deleteNote,
+    saveNote
 };
 
 export default connect(mapStateToProps, mapDispatchToProps);
