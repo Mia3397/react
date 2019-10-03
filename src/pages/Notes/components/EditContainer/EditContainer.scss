@@ -1,0 +1,27 @@
+.edit-container {
+  display: flex;
+  align-items: center;
+
+  * {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+  }
+
+  p {
+    margin: 8px;
+    font-size: 17px;
+  }
+
+  .anticon {
+    margin-left: 10px;
+  }
+
+  .save {
+    color: rgba(26, 255, 71, 0.89);
+  }
+
+  .edit {
+    color: rgba(0, 0, 255, 0.56);
+  }
+}

@@ -1,34 +1,25 @@
 import React, {Component} from 'react';
 import {Button, Input, Modal} from 'antd/es';
 import connect from './connect';
+import {Note} from "./components/index";
 import text from '../../constants/text';
 import './Notes.css';
 
 class Notes extends Component {
     state = {
-        visibleAddNoteModal: false,
-        visibleChangeNoteModal: false,
-        changeNoteId: '',
+        visible: false,
         currentNote: {}
     };
 
-    showAddNoteModal = () => {
+    showModal = () => {
         this.setState({
-            visibleAddNoteModal: true
+            visible: true
         })
-    };
-
-    changeNote = (id) => () =>{
-        this.setState({
-            visibleChangeNoteModal: true,
-            changeNoteId: id
-        });
     };
 
     handleCancel = () => {
         this.setState({
-            visibleAddNoteModal: false,
-            visibleChangeNoteModal: false
+            visible: false,
         })
     };
 
@@ -36,20 +27,9 @@ class Notes extends Component {
         const { currentNote } = this.state;
         this.props.addNote(currentNote);
         this.setState({
-            visibleAddNoteModal: false,
+            visible: false,
             currentNote: {}
         });
-    };
-
-    deleteNote = (id) => () => this.props.deleteNote(id);
-
-    saveNote = (id, note) => () => {
-        this.props.saveNote(id, note);
-        this.setState({
-            visibleChangeNoteModal: false,
-            currentNote: {}
-        });
-
     };
 
     onChange = ({target}) => {
@@ -64,18 +44,17 @@ class Notes extends Component {
     };
 
     render() {
-        const {visibleAddNoteModal, visibleChangeNoteModal, currentNote, changeNoteId} = this.state;
+        const {visible, currentNote} = this.state;
         const {notes} = this.props;
-        const {TextArea} = Input;
         return(
             <div className="wrapper">
                 <h1>Notes</h1>
-                <Button onClick={this.showAddNoteModal} type="primary">
+                <Button onClick={this.showModal} type="primary">
                     Add note
                 </Button>
                 <Modal
                     title="Add Note"
-                    visible={visibleAddNoteModal}
+                    visible={visible}
                     onCancel={this.handleCancel}
                     footer={[
                         <Button type="back" onClick={this.handleCancel}>
@@ -98,7 +77,7 @@ class Notes extends Component {
                         onChange={this.onChange}
                         value={currentNote.date}
                     />
-                    <TextArea
+                    <Input.TextArea
                         placeholder="Your note..."
                         name="text"
                         onChange={this.onChange}
@@ -107,57 +86,16 @@ class Notes extends Component {
                 </Modal>
                 <div className="notes">
                     {notes.map(note => (
-                        <div className="note" key={note.title} id={note.id}>
-                            <header>
-                                <div className="title">
-                                    <h2>{note.title}</h2>
-                                    <span>{note.date}</span>
-                                </div>
-                                <div className="note-updater">
-                                    <Button type="primary" onClick={this.deleteNote(note.id)}>
-                                        {text.buttonDelete}
-                                    </Button>
-                                    <Button type="primary" onClick={this.changeNote(note.id)}>
-                                        {text.buttonChange}
-                                    </Button>
-                                </div>
-                            </header>
-                            <div>{note.text}</div>
-                        </div>
+                        <Note
+                            key={note.id}
+                            id={note.id}
+                            title={note.title}
+                            date={note.date}
+                            text={note.text}
+                        />
                     ))}
                 </div>
-                <Modal
-                    title="Change Note"
-                    visible={visibleChangeNoteModal}
-                    onCancel={this.handleCancel}
-                    footer={[
-                        <Button type="back" onClick={this.handleCancel}>
-                            {text.modalCancel}
-                        </Button>,
-                        <Button type="primary" onClick={this.saveNote(changeNoteId, currentNote)}>
-                            {text.modalSave}
-                        </Button>
-                    ]}
-                >
-                    <Input
-                        placeholder="Title"
-                        name="title"
-                        onChange={this.onChange}
-                        value={currentNote.title}
-                    />
-                    <Input
-                        placeholder="Date in format MM.DD.YYYY"
-                        name="date"
-                        onChange={this.onChange}
-                        value={currentNote.date}
-                    />
-                    <TextArea
-                        placeholder="Your note..."
-                        name="text"
-                        onChange={this.onChange}
-                        value={currentNote.text}
-                    />
-                </Modal>
+
             </div>
         )
     }

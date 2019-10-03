@@ -7,11 +7,11 @@ const createCorrectDurationPart = (part) => String(part).length > 1 ? part : `0$
 
 const parseDateRelease = (date) => new Date(date).toDateString().slice(4);
 
-const parseTrackName = (trackName) => trackName.length > 20 ? `${trackName.slice(0, 20)}...` : trackName;
+const parseName = (name) => name.length > 15 ? `${name.slice(0, 15)}...` : name;
 
 export default {
     parseDuration,
     parseDateRelease,
     createCorrectDurationPart,
-    parseTrackName
+    parseName
 }

@@ -8,30 +8,30 @@
     background-color: #fff9e9;
 }
 
-.note header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
+/*.note header {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
 
-.note .title > h2 {
-    text-decoration: underline;
-    color: #000045;
-}
-.note .title > span {
-    color: #b4afa4;
-    font-size: 12px;
-}
+/*.note .title > h2 {*/
+/*    text-decoration: underline;*/
+/*    color: #000045;*/
+/*}*/
+/*.note .title > span {*/
+/*    color: #b4afa4;*/
+/*    font-size: 12px;*/
+/*}*/
 
-.note-updater {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-}
+/*.note-updater {*/
+/*    width: 200px;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
 
-.note > div {
-    color: #000045;
-    width: 100%;
-    word-break: break-all;
-}
+/*.note > div {*/
+/*    color: #000045;*/
+/*    width: 100%;*/
+/*    word-break: break-all;*/
+/*}*/

@@ -21,13 +21,15 @@ export const deleteNote = (id) => (dispatch, getState) => {
     dispatch(action.updateNote(updateNotes));
 };
 
-export const saveNote = (id, note) => (dispatch, getState) => {
+export const updateNoteById = (id, newValue, type) => (dispatch, getState) => {
     const {notes} = getState().notesReducer;
-    const noteWithId = R.find(R.propEq('id', id))(notes);
-    const newNote = R.mergeDeepRight(noteWithId, note);
-    const noteIndex = R.indexOf(noteWithId, notes);
-    notes[noteIndex] = newNote;
-    localStorage.setItem('notes', JSON.stringify(notes));
-    dispatch(action.updateNote(notes));
-
+    const updateNotes = notes.map(it => {
+        if(it.id !== id) return it;
+        return {
+            ...it,
+            [type]: newValue
+        }
+    });
+    localStorage.setItem('notes', JSON.stringify(updateNotes));
+    dispatch(action.updateNote(updateNotes));
 };

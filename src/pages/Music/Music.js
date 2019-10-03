@@ -1,8 +1,7 @@
 import React, {Component} from "react";
-import {Input} from 'antd';
+import {Input, Spin} from 'antd';
 import connect from './connect';
 import {Card} from '../../components';
-import {Spin} from 'antd';
 import text from '../../constants/text';
 import './Music.css';
 
@@ -16,6 +15,10 @@ class Music extends Component {
         playing: false,
         trackId: ''
     };
+
+    componentWillMount() {
+        this.onSearch(this.props.location.state.term)
+    }
 
     onPlay = (id) => () => {
         this.setState({
@@ -49,9 +52,18 @@ class Music extends Component {
         });
     };
 
+    onChange = ({target: {value}}) => {
+        this.setState({
+            params: {
+                ...this.state.params,
+                term: value
+            }
+        })
+    };
+
     render() {
         const {songs} = this.props;
-        const {loading, playing, trackId} = this.state;
+        const {loading, playing, trackId, params:{term}} = this.state;
 
         return (
             <div className="wrapper">
@@ -61,6 +73,8 @@ class Music extends Component {
                         placeholder={text.placeholderForSearchMusic}
                         enterButton={text.buttonSearch}
                         onSearch={this.onSearch}
+                        value={term}
+                        onChange={this.onChange}
                     />
                     <div className="cards">
                         {songs.map(it => <Card

@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from "../Avatar/Avatar";
+import {Avatar} from "../index";
 import Player from "../Player/Player";
 import F from '../../utils/func';
 import './Card.css';
@@ -12,8 +12,8 @@ const Card = ({item, play, onPlay, onStop}) =>  {
             <div className='info'>
                 <Avatar url={artworkUrl100}/>
                 <div className="text">
-                    <h2>{`${artistName} - ${F.parseTrackName(trackName)}`}</h2>
-                    <p>{`Album: ${collectionName}`}</p>
+                    <h2>{`${F.parseName(artistName)} - ${F.parseName(trackName)}`}</h2>
+                    <p>{`Album: ${F.parseName(collectionName)}`}</p>
                     <p>{`Country: ${country}`}</p>
                     <p>{`Date: ${F.parseDateRelease(releaseDate)}`}</p>
                     <p>{`Duration: ${F.parseDuration(trackTimeMillis)}`}</p>
