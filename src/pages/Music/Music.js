@@ -16,8 +16,9 @@ class Music extends Component {
         trackId: ''
     };
 
-    componentWillMount() {
-        this.onSearch(this.props.location.state.term)
+    componentDidMount() {
+        const {state} = this.props.location;
+        state && this.onSearch(state.term)
     }
 
     onPlay = (id) => () => {

@@ -8,19 +8,21 @@ import text from '../../constants/text';
 import './Musicians.css';
 
 const Musicians = (props) => {
-    const makeCell = (it) => <td key={generateId()}>{it}</td>;
+    const makeCell = (it, index) => <td key={`${index}${it}`}>{it}</td>;
 
-    const makeLine = it => (<tr key={generateId()}>
-        {
-            R.map(makeCell, R.values(it))
-        }
-        <td>
-            <Button onClick={searchSongs(it.name)}> {text.buttonSearch} <Icon type="apple"/></Button>
-        </td>
-    </tr>);
+    const makeLine = (it, index) => (
+        <tr key={`${it.name}${index}`}>
+            {
+                R.map(makeCell, R.values(it))
+            }
+            <td>
+                <Button onClick={searchSongs(it.name)}> {text.buttonSearch} <Icon type="apple"/></Button>
+            </td>
+        </tr>
+    );
 
-    const searchSongs = (value) => () => {
-        props.history.push('/music', {term: value});
+    const searchSongs = (term) => () => {
+        props.history.push('/music', {term});
     };
 
     return(
