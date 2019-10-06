@@ -4,7 +4,7 @@ import text from '../../constants/text';
 import './Header.css';
 
 const Header = () => (
-    <header>
+    <header className="header">
         <h1 className="headline">
           {text.appName}
           <Icon type="apple" theme="filled"/>

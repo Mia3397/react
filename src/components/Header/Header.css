@@ -1,9 +1,9 @@
-header {
+.header {
     display: flex;
     background-color: #000045;
 }
 
-header .headline {
+.header .headline {
     color: #ffedef;
     font-size: 20px;
     cursor: pointer;
