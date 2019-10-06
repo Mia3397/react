@@ -1,0 +1,24 @@
+table {
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.2);
+    margin-top: 20px;
+    width: 100%;
+}
+
+td {
+    text-align: center;
+}
+
+thead td {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+}
+
+tr button.ant-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table > tr:hover {
+    background-color: rgba(0, 0, 255, 0.14);
+}

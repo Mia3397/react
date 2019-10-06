@@ -1,0 +1,59 @@
+.player_wrapper {
+    position: relative;
+}
+
+.player_wrapper > div {
+    width: 100% !important;
+    height: 44px !important;
+    padding: 30px 15px;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+    border-radius: 30px;
+}
+
+.player {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player > .ant-btn.ant-btn-primary {
+    height: 38px;
+    width: 38px;
+    box-shadow: none;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.player > .ant-btn.ant-btn-primary:hover {
+    background-color: rgba(180, 175, 164, 0.5);
+    border-radius: 50%;
+}
+
+.player .anticon, .player .ant-btn {
+    margin: 0;
+    padding: 0;
+}
+
+.player .anticon {
+    color: #000045;
+    font-size: 30px;
+    height: 30px;
+}
+
+.progress_bar {
+    background-color: #ddd;
+    height: 4px;
+    width: 160px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.progress_bar span {
+    display: block;
+    background-color: #000045;
+    height: 100%;
+}
