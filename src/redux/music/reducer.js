@@ -1,4 +1,5 @@
 import {GET_MUSIC} from './types';
+import F from '../../utils/func';
 
 const initialState = {
     songs: []
@@ -11,9 +12,4 @@ const handleReducer = {
     })
 };
 
-const musicReducer = (state = initialState, action) => {
-    const handler = handleReducer[action.type];
-    return handler ? handler(state, action) : state;
-};
-
-export default musicReducer;
+export default F.createReducer(handleReducer, initialState);
