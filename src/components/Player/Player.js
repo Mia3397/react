@@ -1,7 +1,7 @@
-import React from "react";
-import ReactPlayer from "react-player";
-import {Button, Icon} from "antd";
-import F from "../../utils/func";
+import React from 'react';
+import ReactPlayer from 'react-player';
+import {Button, Icon} from 'antd';
+import F from '../../utils/func';
 import './Player.css';
 
 class Player extends React.Component {
@@ -31,7 +31,7 @@ class Player extends React.Component {
                 />
                 <div className="player">
                     <Button type="primary" onClick={play ? onStop : onPlay} id={track}>
-                        <Icon type={ play ? "pause" : "caret-right"} />
+                        <Icon type={ play ? 'pause' : 'caret-right'} />
                     </Button>
                     <span>{`0:${F.createCorrectDurationPart(Math.round(playedSeconds))} / 0:30`}</span>
                     <div className="progress_bar">

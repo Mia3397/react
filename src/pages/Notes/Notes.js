@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Input, Modal} from 'antd/es';
+import * as R from 'ramda';
 import connect from './connect';
-import {Note} from "./components/index";
+import {Note} from './components/index';
 import text from '../../constants/text';
 import './Notes.css';
 
@@ -85,15 +86,17 @@ class Notes extends Component {
                     />
                 </Modal>
                 <div className="notes">
-                    {notes.map(note => (
-                        <Note
-                            key={note.id}
-                            id={note.id}
-                            title={note.title}
-                            date={note.date}
-                            text={note.text}
-                        />
-                    ))}
+                    {
+                        R.map(note => (
+                            <Note
+                                key={note.id}
+                                id={note.id}
+                                title={note.title}
+                                date={note.date}
+                                text={note.text}
+                            />),
+                        notes)
+                    }
                 </div>
 
             </div>

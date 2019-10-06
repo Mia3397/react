@@ -17,10 +17,10 @@ const App = () => (
             <Header/>
             <main>
                 <Sidebar/>
-                <Route path="/musicians" component={Musicians}/>
-                <Route path="/analytics" component={Analytics}/>
-                <Route path="/notes" component={Notes}/>
-                <Route path="/music" component={Music}/>
+                <Route path="/musicians" exact component={Musicians}/>
+                <Route path="/analytics" exact component={Analytics}/>
+                <Route path="/notes" exact component={Notes}/>
+                <Route path="/music" exact component={Music}/>
             </main>
         </Router>
     </Provider>

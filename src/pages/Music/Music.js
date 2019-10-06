@@ -1,5 +1,6 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import {Input, Spin} from 'antd';
+import * as R from 'ramda';
 import connect from './connect';
 import {Card} from '../../components';
 import text from '../../constants/text';
@@ -21,10 +22,10 @@ class Music extends Component {
         state && this.onSearch(state.term)
     }
 
-    onPlay = (id) => () => {
+    onPlay = (trackId) => () => {
         this.setState({
             playing: true,
-            trackId: id
+            trackId
         })
     };
 
@@ -33,7 +34,6 @@ class Music extends Component {
             playing: false
         })
     };
-
     onSearch = (value) => {
         this.setState({
             params: {
@@ -69,7 +69,7 @@ class Music extends Component {
         return (
             <div className="wrapper">
                 <Spin spinning={loading}>
-                    <h1>Music</h1>
+                    <h1>{text.musicHeadline}</h1>
                     <Input.Search
                         placeholder={text.placeholderForSearchMusic}
                         enterButton={text.buttonSearch}
@@ -78,13 +78,17 @@ class Music extends Component {
                         onChange={this.onChange}
                     />
                     <div className="cards">
-                        {songs.map(it => <Card
-                            item={it}
-                            play={playing && it.trackId === trackId}
-                            key={it.trackId}
-                            onPlay={this.onPlay(it.trackId)}
-                            onStop={this.onStop}
-                        />)}
+                        {
+                            R.map(it =>
+                                <Card
+                                    item={it}
+                                    play={playing && it.trackId === trackId}
+                                    key={it.trackId}
+                                    onPlay={this.onPlay(it.trackId)}
+                                    onStop={this.onStop}
+                                />,
+                            songs)
+                        }
                     </div>
                 </Spin>
             </div>

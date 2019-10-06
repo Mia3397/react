@@ -35,11 +35,14 @@ class Note extends React.Component {
         })
     };
 
-    deleteNote = (id) => () => this.props.deleteNote(id);
+    deleteNote = () => {
+        const {id, deleteNote} = this.props;
+        deleteNote(id);
+    };
 
     render(){
         const {type, value} = this.state;
-        const {title, date, text, id} = this.props;
+        const {title, date, text} = this.props;
 
         return(
             <div className="note">
@@ -64,7 +67,7 @@ class Note extends React.Component {
                             onEdit={this.onEdit}
                         />
                     </div>
-                    <Button type="primary" onClick={this.deleteNote(id)}>
+                    <Button type="primary" onClick={this.deleteNote}>
                         {buttonText.buttonDelete}
                     </Button>
                 </header>

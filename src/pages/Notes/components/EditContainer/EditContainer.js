@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {Icon, Input} from 'antd';
 import './EditContainer.scss';
 
@@ -10,12 +10,12 @@ const EditContainer = ({type, containerType, value, onChange, onUpdate, onEdit, 
             {
                 isSameType
                     ? <Input
-                    type="text"
-                    name={containerType}
-                    value={value}
-                    onChange={onChange}
-                />
-                : <p>{text}</p>
+                        type="text"
+                        name={containerType}
+                        value={value}
+                        onChange={onChange}
+                      />
+                    : <p>{text}</p>
             }
             {
                <Icon

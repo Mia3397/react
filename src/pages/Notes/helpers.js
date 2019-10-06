@@ -5,9 +5,10 @@ import generateId from 'nanoid';
 export const addNote = (note) => (dispatch) => {
     const noteWithId = {...note, id: generateId()};
     const notes = R.pipe(
-        R.defaultTo('[]'),
-        JSON.parse
-    )(localStorage.getItem('notes'));
+            localStorage.getItem,
+            R.defaultTo('[]'),
+            JSON.parse
+        )('notes');
     const allNotes = [...notes, noteWithId];
     localStorage.setItem('notes', JSON.stringify(allNotes));
     dispatch(action.addNote(noteWithId));
@@ -23,13 +24,13 @@ export const deleteNote = (id) => (dispatch, getState) => {
 
 export const updateNoteById = (id, newValue, type) => (dispatch, getState) => {
     const {notes} = getState().notesReducer;
-    const updateNotes = notes.map(it => {
+    const updateNotes = R.map(it => {
         if(it.id !== id) return it;
         return {
             ...it,
             [type]: newValue
         }
-    });
+    }, notes);
     localStorage.setItem('notes', JSON.stringify(updateNotes));
     dispatch(action.updateNote(updateNotes));
 };

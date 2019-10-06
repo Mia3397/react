@@ -1,15 +1,14 @@
 import React from 'react';
+import {Icon} from 'antd';
 import text from '../../constants/text';
 import './Header.css';
 
 const Header = () => (
-    <header className="header">
-        <h1 className="headline">{text.headerItems.title}</h1>
-        {
-            text.headerItems.menuItems.map(item => (
-                <li className="header-item" key={item}>{item}</li>
-            ))
-        }
+    <header>
+        <h1 className="headline">
+          {text.appName}
+          <Icon type="apple" theme="filled"/>
+        </h1>
     </header>
 );
 

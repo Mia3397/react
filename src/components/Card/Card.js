@@ -1,15 +1,25 @@
 import React from 'react';
-import {Avatar} from "../index";
-import Player from "../Player/Player";
+import {Avatar} from '../index';
+import Player from '../Player/Player';
 import F from '../../utils/func';
 import './Card.css';
 
 const Card = ({item, play, onPlay, onStop}) =>  {
-    const {artworkUrl100, artistName, trackName, collectionName, country, releaseDate, trackTimeMillis, previewUrl, trackId} = item;
+    const {
+      artworkUrl100,
+      artistName,
+      trackName,
+      collectionName,
+      country,
+      releaseDate,
+      trackTimeMillis,
+      previewUrl,
+      trackId
+    } = item;
 
     return  (
-        <div className='card'>
-            <div className='info'>
+        <div className="card">
+            <div className="info">
                 <Avatar url={artworkUrl100}/>
                 <div className="text">
                     <h2>{`${F.parseName(artistName)} - ${F.parseName(trackName)}`}</h2>

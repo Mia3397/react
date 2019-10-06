@@ -1,8 +1,6 @@
 const text =  {
-    headerItems: {
-        title: 'My header',
-        menuItems: ['Home', 'Posts', 'Contact']
-    },
+    appName: 'My iTunes',
+    musicHeadline: 'Music',
     modalApply: 'Apply',
     modalCancel: 'Cancel',
     modalAdd: 'Add',

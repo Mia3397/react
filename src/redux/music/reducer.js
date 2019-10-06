@@ -1,4 +1,4 @@
-import {GET_MUSIC} from "./types";
+import {GET_MUSIC} from './types';
 
 const initialState = {
     songs: []
