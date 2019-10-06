@@ -1,4 +1,5 @@
 import {ADD_NOTE, UPDATE_NOTE} from "./types";
+import F from '../../utils/func';
 
 const localNotes = localStorage.getItem('notes');
 
@@ -17,9 +18,4 @@ const handleReducer = {
     })
 };
 
-const reducer = (state = initialState, action) => {
-    const handler = handleReducer[action.type];
-    return handler ? handler(state, action) : state;
-};
-
-export default reducer;
+export default F.createReducer(handleReducer, initialState);

@@ -1,14 +1,12 @@
 import {connect} from 'react-redux';
-import {addNote, deleteNote, updateNoteById} from './helpers'
+import {getMusic} from './helpers';
 
 const mapStateToProps = (state) => ({
-    notes: state.notesReducer.notes
+    songs: state.musicReducer.songs
 });
 
 const mapDispatchToProps = {
-    addNote,
-    deleteNote,
-    updateNoteById
+    getMusic
 };
 
 export default connect(mapStateToProps, mapDispatchToProps);

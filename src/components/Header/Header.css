@@ -1,20 +1,17 @@
-.header {
+header {
     display: flex;
     background-color: #000045;
 }
 
-.headline, .header-item {
+header .headline {
     color: #ffedef;
     font-size: 20px;
     cursor: pointer;
-}
-
-.headline {
-    font-weight: normal;
     padding: 20px 50px 20px;
+
 }
 
-.header-item {
-    list-style: none;
-    padding: 20px 15px;
+.headline .anticon  {
+    margin-left: 10px;
 }
+

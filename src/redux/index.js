@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import sidebar from './sidebar/reducer';
-import notes from './notes/reducer';
+import sidebarReducer from './sidebar/reducer';
+import notesReducer from './notes/reducer';
+import musicReducer from './music/reducer';
 
 export default combineReducers({
-    sidebar,
-    notes
+    sidebarReducer,
+    notesReducer,
+    musicReducer
 })

@@ -7,25 +7,3 @@
     padding: 10px;
     background-color: #fff9e9;
 }
-
-.note header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.note header h2 {
-    text-decoration: underline;
-    color: #000045;
-}
-.note header > span {
-    color: #b4afa4;
-    font-size: 12px;
-}
-
-.note div {
-    color: #000045;
-    width: 100%;
-    word-break: break-all;
-}

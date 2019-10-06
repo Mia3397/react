@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Input, Modal} from 'antd/es';
+import * as R from 'ramda';
 import connect from './connect';
+import {Note} from './components/index';
 import text from '../../constants/text';
 import './Notes.css';
 
@@ -18,7 +20,7 @@ class Notes extends Component {
 
     handleCancel = () => {
         this.setState({
-            visible: false
+            visible: false,
         })
     };
 
@@ -30,8 +32,6 @@ class Notes extends Component {
             currentNote: {}
         });
     };
-
-    deleteNote = (id) => () => this.props.deleteNote(id);
 
     onChange = ({target}) => {
         const {name, value} = target;
@@ -47,7 +47,6 @@ class Notes extends Component {
     render() {
         const {visible, currentNote} = this.state;
         const {notes} = this.props;
-        const {TextArea} = Input;
         return(
             <div className="wrapper">
                 <h1>Notes</h1>
@@ -79,7 +78,7 @@ class Notes extends Component {
                         onChange={this.onChange}
                         value={currentNote.date}
                     />
-                    <TextArea
+                    <Input.TextArea
                         placeholder="Your note..."
                         name="text"
                         onChange={this.onChange}
@@ -87,19 +86,19 @@ class Notes extends Component {
                     />
                 </Modal>
                 <div className="notes">
-                    {notes.map(note => (
-                        <div className="note" key={note.title} id={note.id}>
-                            <header>
-                                <div className="title">
-                                    <h2>{note.title}</h2>
-                                    <span>{note.date}</span>
-                                </div>
-                                <Button type="primary" onClick={this.deleteNote(note.id)}>{text.buttonDelete}</Button>
-                            </header>
-                            <div>{note.text}</div>
-                        </div>
-                    ))}
+                    {
+                        R.map(note => (
+                            <Note
+                                key={note.id}
+                                id={note.id}
+                                title={note.title}
+                                date={note.date}
+                                text={note.text}
+                            />),
+                        notes)
+                    }
                 </div>
+
             </div>
         )
     }
