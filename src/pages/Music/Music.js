@@ -22,11 +22,12 @@ class Music extends Component {
         state && this.onSearch(state.term)
     }
 
-    onPlay = (trackId) => () => {
+    onPlay = (trackId, name) => () => {
         this.setState({
             playing: true,
             trackId
-        })
+        });
+        this.props.countPlaying(name);
     };
 
     onStop = () => {
@@ -34,13 +35,14 @@ class Music extends Component {
             playing: false
         })
     };
+
     onSearch = (value) => {
         this.setState({
             params: {
                 ...this.state.params,
                 term: value
-            }
-        }, this.getSongs)
+            },
+        }, this.getSongs);
     };
 
     getSongs = async () => {
@@ -84,7 +86,7 @@ class Music extends Component {
                                     item={it}
                                     play={playing && it.trackId === trackId}
                                     key={it.trackId}
-                                    onPlay={this.onPlay(it.trackId)}
+                                    onPlay={this.onPlay(it.trackId, it.artistName)}
                                     onStop={this.onStop}
                                 />,
                             songs)

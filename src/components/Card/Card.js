@@ -4,7 +4,7 @@ import Player from '../Player/Player';
 import F from '../../utils/func';
 import './Card.css';
 
-const Card = ({item, play, onPlay, onStop}) =>  {
+const Card = ({item, play, onPlay, onStop, artists}) =>  {
     const {
       artworkUrl100,
       artistName,

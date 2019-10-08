@@ -13,7 +13,10 @@ const text =  {
     placeholderForSearchMusic: 'Enter artist',
     genderMale: 'male',
     genderFemale: 'female',
-    imgAlt: 'Artist'
+    imgAlt: 'Artist',
+    xTitle: 'Artist',
+    queriesTitle: 'Count of search queries',
+    playingTitle: 'Count of playing'
 };
 
 export default text;

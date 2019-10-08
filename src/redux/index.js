@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 import sidebarReducer from './sidebar/reducer';
 import notesReducer from './notes/reducer';
 import musicReducer from './music/reducer';
+import analyticsReducer from './analytics/reducer'
 
 export default combineReducers({
     sidebarReducer,
     notesReducer,
-    musicReducer
+    musicReducer,
+    analyticsReducer
 })

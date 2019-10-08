@@ -1,4 +1,4 @@
-header {
+#root > header {
     display: flex;
     background-color: #000045;
 }

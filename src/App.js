@@ -1,17 +1,18 @@
 import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import './App.css';
-import './constants/text';
-import {Header, Sidebar} from './components';
-import {Musicians, Analytics, Notes, Music} from './pages';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import store from './redux/index';
+import {Musicians, Analytics, Notes, Music} from './pages';
+import {Header, Sidebar} from './components';
+import './constants/text';
+import './App.css';
 
 const rootStore = createStore(store, applyMiddleware(thunk));
 
 const App = () => (
+
     <Provider store={rootStore}>
         <Router>
             <Header/>

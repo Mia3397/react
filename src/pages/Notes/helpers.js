@@ -5,7 +5,7 @@ import generateId from 'nanoid';
 export const addNote = (note) => (dispatch) => {
     const noteWithId = {...note, id: generateId()};
     const notes = R.pipe(
-            localStorage.getItem,
+            key => localStorage.getItem(key),
             R.defaultTo('[]'),
             JSON.parse
         )('notes');

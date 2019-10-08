@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import '~react-vis/dist/style.css';
 
 * {
   margin: 0;
