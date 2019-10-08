@@ -35,6 +35,7 @@ const Card = ({item, play, onPlay, onStop, artists}) =>  {
                 play={play}
                 onPlay={onPlay}
                 onStop={onStop}
+                artists={artists}
             />
         </div>
 

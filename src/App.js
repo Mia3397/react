@@ -1,31 +1,24 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import store from './redux/index';
-import {Musicians, Analytics, Notes, Music} from './pages';
+import {Musicians, Analytics, Notes, Music, Login} from './pages';
 import {Header, Sidebar} from './components';
-import './constants/text';
+import connect from './pages/Login/connect';
 import './App.css';
 
-const rootStore = createStore(store, applyMiddleware(thunk));
-
-const App = () => (
-
-    <Provider store={rootStore}>
+const App = (props) => (
         <Router>
-            <Header/>
+            <Header userName={props.userName}/>
             <main>
                 <Sidebar/>
+                <Route path="/login" exact component={Login}/>
                 <Route path="/musicians" exact component={Musicians}/>
                 <Route path="/analytics" exact component={Analytics}/>
                 <Route path="/notes" exact component={Notes}/>
                 <Route path="/music" exact component={Music}/>
+                <Route path="/" exact component={Login}/>
             </main>
         </Router>
-    </Provider>
 );
 
 
-export default App;
+export default connect(App);

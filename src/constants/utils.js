@@ -1,9 +1,14 @@
 const utils = {
     sidebarItems: [
         {
+            title: 'Login',
+            path: '/login',
+            iconType: 'user'
+        },
+        {
             title: 'Musicians',
             path: '/musicians',
-            iconType: 'user'
+            iconType: 'crown'
         },
         {
             title: 'Analytics',

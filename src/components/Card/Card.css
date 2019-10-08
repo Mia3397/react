@@ -25,3 +25,7 @@
     width: 180px;
 }
 
+.text > p {
+    margin-bottom: 8px;
+}
+

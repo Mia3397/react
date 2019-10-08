@@ -18,7 +18,7 @@ class Sidebar extends Component {
     render() {
         const { isOpen, toggleState } = this.props;
         return (
-            <aside className={isOpen ? 'open' : 'close'}>
+            <aside className={`nav_bar ${isOpen ? 'open' : 'close'}`} >
                 <ul>
                     {this.renderList(isOpen)}
                 </ul>

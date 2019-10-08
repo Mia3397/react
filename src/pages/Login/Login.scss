@@ -1,0 +1,24 @@
+.sign_in {
+  width: 500px;
+  height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  .ant-input {
+      margin-bottom: 20px;
+  }
+
+  .ant-input-affix-wrapper .ant-input-suffix {
+    top: 16px
+  }
+
+  .sign_in_actions {
+      display: flex;
+      justify-content: space-between;
+
+      .ant-btn {
+        width: 45%;
+      }
+  }
+}
