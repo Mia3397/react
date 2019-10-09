@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Icon} from 'antd/es';
 import * as R from 'ramda';
+import PropTypes from 'prop-types';
 import utils from '../../constants/utils';
 import text from '../../constants/text';
 import './Musicians.css';
@@ -36,5 +37,8 @@ const Musicians = ({history}) => {
     );
 };
 
+Musicians.propTypes = {
+    history: PropTypes.object.isRequired
+};
 
 export default Musicians;

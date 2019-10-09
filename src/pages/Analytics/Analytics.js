@@ -1,6 +1,7 @@
 import React from 'react';
 import {XYPlot, VerticalBarSeries, XAxis, YAxis} from 'react-vis';
 import * as R from 'ramda';
+import PropTypes from 'prop-types';
 import connect from './connect';
 import text from '../../constants/text';
 import './Analytics.css';
@@ -8,7 +9,7 @@ import './Analytics.css';
 const Analytics = ({artists}) => {
     const searchData = R.map(it => ({
         x: it.artistName,
-        y: it.searchCounter ? it.searchCounter : 0
+        y: it.searchCounter
     }), R.values(artists));
 
     const playData = R.pipe(
@@ -37,6 +38,14 @@ const Analytics = ({artists}) => {
             </div>
         </div>
     );
+};
+
+Analytics.propTypes = {
+    artists: PropTypes.shape({
+        artistName: PropTypes.string,
+        searchCounter: PropTypes.number,
+        playCounter: PropTypes.number
+    })
 };
 
 export default connect(Analytics);

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Input, Button} from 'antd';
+import PropTypes from 'prop-types';
 import connect from './connect';
 import text from '../../constants/text';
 import './Login.scss';
@@ -68,5 +69,9 @@ class Login extends React.Component {
         )
     }
 }
+
+Login.propTypes = {
+    signIn: PropTypes.func.isRequired
+};
 
 export default connect(Login);

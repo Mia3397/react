@@ -2,8 +2,12 @@
     width: 400px;
 }
 
-.ant-input {
+.ant-input-search .ant-input {
     height: 40px;
+}
+
+.ant-input-search .ant-btn {
+    margin: 0;
 }
 
 .cards {

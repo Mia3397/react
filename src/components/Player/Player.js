@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import {Button, Icon} from 'antd';
+import PropTypes from 'prop-types';
 import F from '../../utils/func';
 import './Player.css';
 
@@ -42,5 +43,13 @@ class Player extends React.Component {
         )
     }
 }
+
+Player.propTypes = {
+    url: PropTypes.string.isRequired,
+    track: PropTypes.number.isRequired,
+    play: PropTypes.bool.isRequired,
+    onPlay: PropTypes.func.isRequired,
+    onStop: PropTypes.func.isRequired
+};
 
 export default Player;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Input, Spin} from 'antd';
 import * as R from 'ramda';
+import PropTypes from 'prop-types';
 import connect from './connect';
 import {Card} from '../../components';
 import text from '../../constants/text';
@@ -66,6 +67,7 @@ class Music extends Component {
 
     render() {
         const {songs} = this.props;
+        console.log(this.props);
         const {loading, playing, trackId, params:{term}} = this.state;
 
         return (
@@ -97,5 +99,12 @@ class Music extends Component {
         )
     }
 }
+
+Music.propTypes = {
+    countPlaying: PropTypes.func.isRequired,
+    getMusic: PropTypes.func.isRequired,
+    songs: PropTypes.array.isRequired,
+    location: PropTypes.object.isRequired
+};
 
 export default connect(Music);

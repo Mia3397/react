@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Avatar} from '../index';
 import Player from '../Player/Player';
 import F from '../../utils/func';
 import './Card.css';
 
-const Card = ({item, play, onPlay, onStop, artists}) =>  {
+const Card = ({item, play, onPlay, onStop}) =>  {
     const {
       artworkUrl100,
       artistName,
@@ -35,12 +36,26 @@ const Card = ({item, play, onPlay, onStop, artists}) =>  {
                 play={play}
                 onPlay={onPlay}
                 onStop={onStop}
-                artists={artists}
             />
         </div>
-
     );
 };
 
+Card.propTypes = {
+    item: PropTypes.shape({
+        artworkUrl100: PropTypes.string.isRequired,
+        artistName: PropTypes.string.isRequired,
+        trackName: PropTypes.string.isRequired,
+        collectionName: PropTypes.string.isRequired,
+        country: PropTypes.string.isRequired,
+        releaseDate: PropTypes.string.isRequired,
+        trackTimeMillis: PropTypes.number.isRequired,
+        previewUrl: PropTypes.string.isRequired,
+        trackId: PropTypes.number.isRequired
+    }),
+    play: PropTypes.bool.isRequired,
+    onPlay: PropTypes.func.isRequired,
+    onStop: PropTypes.func.isRequired
+};
 
 export default Card;

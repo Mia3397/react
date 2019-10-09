@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {Musicians, Analytics, Notes, Music, Login} from './pages';
 import {Header, Sidebar} from './components';
 import connect from './pages/Login/connect';
@@ -20,5 +21,8 @@ const App = (props) => (
         </Router>
 );
 
+App.propTypes = {
+    userName: PropTypes.string.isRequired
+};
 
 export default connect(App);

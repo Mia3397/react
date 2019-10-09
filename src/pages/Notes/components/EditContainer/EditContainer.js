@@ -1,5 +1,6 @@
 import React from 'react';
 import {Icon, Input} from 'antd';
+import PropTypes from 'prop-types';
 import './EditContainer.scss';
 
 const EditContainer = ({type, containerType, value, onChange, onUpdate, onEdit, text}) => {
@@ -26,6 +27,16 @@ const EditContainer = ({type, containerType, value, onChange, onUpdate, onEdit, 
             }
         </div>
     )
+};
+
+EditContainer.propTypes = {
+    type: PropTypes.string,
+    containerType: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    text:PropTypes.string.isRequired
 };
 
 export default EditContainer;

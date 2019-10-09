@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from 'antd';
+import PropTypes from 'prop-types';
 import {EditContainer} from '../index';
 import connect from '../../connect';
 import utils from '../../../../constants/utils';
@@ -85,5 +86,14 @@ class Note extends React.Component {
         )
     }
 }
+
+Note.propTypes = {
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    updateNoteById: PropTypes.func.isRequired,
+    deleteNote: PropTypes.func.isRequired
+};
 
 export default connect(Note);

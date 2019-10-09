@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import Utils from '../../constants/utils';
+import PropTypes from 'prop-types';
 import {Icon} from 'antd/es';
+import Utils from '../../constants/utils';
 import connect from "./connect";
 import './Sidebar.css';
 
@@ -30,5 +31,10 @@ class Sidebar extends Component {
         );
     }
 }
+
+Sidebar.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    toggleState: PropTypes.func.isRequired
+};
 
 export default connect(Sidebar);

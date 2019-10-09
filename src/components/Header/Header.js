@@ -1,5 +1,6 @@
 import React from 'react';
 import {Icon} from 'antd';
+import PropTypes from 'prop-types';
 import text from '../../constants/text';
 import './Header.css';
 
@@ -15,5 +16,9 @@ const Header = ({userName}) => (
         </p>
     </header>
 );
+
+Header.propTypes = {
+    userName: PropTypes.string.isRequired
+};
 
 export default Header;
