@@ -22,6 +22,8 @@ const Musicians = ({history}) => {
         history.push('/music', {term});
     };
 
+    console.log(localStorage);
+
     return(
         <div className="wrapper">
             <h1>Musicians</h1>

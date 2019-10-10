@@ -1,4 +1,6 @@
 import {connect} from 'react-redux';
+import {compose} from 'redux';
+import withUserName from '../../hocs/withUserName';
 import {signIn} from './helpers';
 
 const mapStateToProps = (state) => ({
@@ -9,4 +11,4 @@ const mapDispatchToProps = {
     signIn
 };
 
-export default connect(mapStateToProps, mapDispatchToProps);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withUserName);

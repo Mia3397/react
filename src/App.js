@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {Musicians, Analytics, Notes, Music, Login} from './pages';
 import {Header, Sidebar} from './components';
-import connect from './pages/Login/connect';
+import connect from './connect';
 import './App.css';
 
 const App = (props) => (
@@ -22,7 +22,7 @@ const App = (props) => (
 );
 
 App.propTypes = {
-    userName: PropTypes.string.isRequired
+    userName: PropTypes.string
 };
 
 export default connect(App);

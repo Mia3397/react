@@ -26,9 +26,8 @@ class Login extends React.Component {
         })
     };
 
-    signIn = (name) => () => {
-        this.props.history.push('/musicians');
-        this.props.signIn(name);
+    signIn = (name, email, password) => () => {
+        this.props.signIn(name, email, password);
     };
 
     render() {
@@ -60,7 +59,7 @@ class Login extends React.Component {
                         <Button onClick={this.handleCancel}>
                             {text.buttonCancel}
                         </Button>
-                        <Button type="primary" onClick={this.signIn(userName)}>
+                        <Button type="primary" onClick={this.signIn(userName, email, password)}>
                             {text.buttonSignIn}
                         </Button>
                     </div>
@@ -71,7 +70,7 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-    signIn: PropTypes.func.isRequired
+    signIn: PropTypes.func
 };
 
 export default connect(Login);
