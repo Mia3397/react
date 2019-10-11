@@ -16,6 +16,10 @@
     position: relative;
 }
 
+.card:hover {
+    box-shadow: 0 0 6px 0 rgba(0, 113, 226, 0.57);
+}
+
 .info {
     width: 100%;
     display: flex;
