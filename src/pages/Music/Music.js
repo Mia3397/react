@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Input, Spin} from 'antd';
+import {Input, Spin, Button} from 'antd';
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
 import connect from './connect';
@@ -15,7 +15,8 @@ class Music extends Component {
         },
         loading: false,
         playing: false,
-        trackId: ''
+        trackId: '',
+        isOpenFavorites: false
     };
 
     componentDidMount() {
@@ -43,6 +44,7 @@ class Music extends Component {
                 ...this.state.params,
                 term: value
             },
+            isOpenFavorites: false
         }, this.getSongs);
     };
 
@@ -65,33 +67,50 @@ class Music extends Component {
         })
     };
 
+    showFavorites = () => {
+        this.setState({
+            isOpenFavorites: true
+        })
+    };
+
     render() {
-        const {songs} = this.props;
-        console.log(this.props);
-        const {loading, playing, trackId, params:{term}} = this.state;
+        const {songs, addSongToFav, deleteFromFav} = this.props;
+        const {loading, playing, trackId, params:{term}, isOpenFavorites} = this.state;
+        const favSongs = JSON.parse(localStorage.getItem('favoriteSongs')) || {};
 
         return (
             <div className="wrapper">
                 <Spin spinning={loading}>
-                    <h1>{text.musicHeadline}</h1>
-                    <Input.Search
-                        placeholder={text.placeholderForSearchMusic}
-                        enterButton={text.buttonSearch}
-                        onSearch={this.onSearch}
-                        value={term}
-                        onChange={this.onChange}
-                    />
+                    <h1>{isOpenFavorites? text.favoritesHeadline : text.musicHeadline}</h1>
+                    <div className="filters">
+                        <Input.Search
+                            placeholder={text.placeholderForSearchMusic}
+                            enterButton={text.buttonSearch}
+                            onSearch={this.onSearch}
+                            value={term}
+                            onChange={this.onChange}
+                        />
+                        <Button
+                            type={isOpenFavorites ? "default" : "primary"}
+                            onClick={this.showFavorites}
+                        >
+                            {isOpenFavorites ? text.openFavorites : text.closeFavorites}
+                        </Button>
+                    </div>
+
                     <div className="cards">
                         {
                             R.map(it =>
                                 <Card
-                                    item={it}
+                                    item={{...it, isFavorite: R.has(it.trackId, favSongs)}}
                                     play={playing && it.trackId === trackId}
                                     key={it.trackId}
                                     onPlay={this.onPlay(it.trackId, it.artistName)}
                                     onStop={this.onStop}
+                                    addSongToFav={addSongToFav}
+                                    deleteFromFav={deleteFromFav}
                                 />,
-                            songs)
+                                isOpenFavorites ? R.values(favSongs) : songs)
                         }
                     </div>
                 </Spin>

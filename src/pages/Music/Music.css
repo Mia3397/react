@@ -1,4 +1,11 @@
-.ant-input-search {
+.filters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.filters > .ant-input-search {
     width: 400px;
 }
 
@@ -6,7 +13,7 @@
     height: 40px;
 }
 
-.ant-input-search .ant-btn {
+.ant-spin-container .ant-btn {
     margin: 0;
 }
 

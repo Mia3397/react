@@ -50,6 +50,7 @@ main .wrapper {
 main .wrapper h1 {
   text-align: center;
   color: #000045;
+  margin-bottom: 15px;
 }
 
 .ant-btn {

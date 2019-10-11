@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {getMusic, countPlaying} from './helpers';
+import {getMusic, countPlaying, addSongToFav, deleteFromFav} from './helpers';
 
 const mapStateToProps = (state) => ({
     songs: state.musicReducer.songs
@@ -7,7 +7,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     getMusic,
-    countPlaying
+    countPlaying,
+    addSongToFav,
+    deleteFromFav
 };
 
 export default connect(mapStateToProps, mapDispatchToProps);

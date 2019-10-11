@@ -29,3 +29,25 @@ export const countPlaying = (name) => (dispatch, getState) => {
         playCounter: artist.playCounter ? artist.playCounter + 1 : 1
     }))
 };
+
+export const addSongToFav = (song) => (dispatch) => {
+    const favSongs = R.pipe(
+        key => localStorage.getItem(key),
+        R.defaultTo('{}'),
+        JSON.parse
+    )('favoriteSongs');
+    if(!R.has(song.trackId, favSongs)) favSongs[song.trackId] = song;
+    localStorage.setItem('favoriteSongs', JSON.stringify(favSongs));
+    dispatch(action.addSongToFavorite(song));
+};
+
+export const deleteFromFav = (id) => (dispatch) => {
+    const favSongs = R.pipe(
+        key => localStorage.getItem(key),
+        R.defaultTo('{}'),
+        JSON.parse
+    )('favoriteSongs');
+    delete favSongs[id];
+    localStorage.setItem('favoriteSongs', JSON.stringify(favSongs));
+    dispatch(action.updateFavoriteSongs(favSongs));
+};

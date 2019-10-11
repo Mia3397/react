@@ -1,6 +1,7 @@
 const text =  {
     appName: 'My iTunes',
-    musicHeadline: 'Music',
+    musicHeadline: 'iTunes Music',
+    favoritesHeadline: 'Favorites',
     modalApply: 'Apply',
     modalCancel: 'Cancel',
     modalAdd: 'Add',
@@ -21,7 +22,11 @@ const text =  {
     imgAlt: 'Artist',
     xTitle: 'Artist',
     queriesTitle: 'Count of search queries',
-    playingTitle: 'Count of playing'
+    playingTitle: 'Count of playing',
+    closeFavorites: 'Go to my Favorites',
+    openFavorites: 'My Favorites',
+    searchAnalytics: 'Search Analytics',
+    playAnalytics: 'Play Analytics'
 };
 
 export default text;

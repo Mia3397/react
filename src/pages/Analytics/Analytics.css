@@ -1,21 +1,17 @@
-.wrapper {
-    box-sizing: content-box;
-}
-
 .analytics {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    flex-wrap: wrap;
     height: 100%;
 }
 
+.analytics h3 {
+    color: #000045;
+    text-align: center;
+    font-size: 20px;
+}
 .rv-xy-plot__inner {
     box-shadow: 0 0 6px 0 rgba(0,0,0,0.25);
     padding: 20px 10px 0;
     box-sizing: content-box;
-}
-
-.rv-xy-plot__axis__title text {
-    fill: #000045;
-    font-size: 15px;
 }
