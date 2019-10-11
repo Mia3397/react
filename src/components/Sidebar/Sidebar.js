@@ -2,18 +2,19 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {Icon} from 'antd/es';
-import Utils from '../../constants/utils';
+import * as R from 'ramda';
+import utils from '../../constants/utils';
 import connect from "./connect";
 import './Sidebar.css';
 
 class Sidebar extends Component {
     renderList = (isOpen) => (
-        Utils.sidebarItems.map(it => (
+        R.map(it => (
             <NavLink to={it.path} key={it.title} activeClassName="active-link" className="link">
                 <Icon type={it.iconType} />
                 {isOpen && it.title}
             </NavLink>
-        ))
+        ), utils.sidebarItems)
     );
 
     render() {

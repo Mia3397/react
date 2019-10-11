@@ -15,7 +15,7 @@ class Card extends React.Component {
         this.setState({
             isFav: true
         });
-        this.props.addSongToFav(song);
+        this.props.addSongToFav(song)
     };
 
     deleteFromFavorite = (id) => () =>{
@@ -38,6 +38,7 @@ class Card extends React.Component {
             previewUrl,
             trackId
         } = item;
+        const {isFav} = this.state;
 
         return  (
             <div className="card">
@@ -52,8 +53,8 @@ class Card extends React.Component {
                     </div>
                     <Icon
                         type="heart"
-                        onClick={this.state.isFav ? this.deleteFromFavorite(trackId) : this.addToFavorite(item)}
-                        theme={this.state.isFav ? "filled" : ''}
+                        onClick={isFav ? this.deleteFromFavorite(trackId) : this.addToFavorite(item)}
+                        theme={isFav ? "filled" : ''}
                     />
                 </div>
                 <Player
@@ -79,7 +80,7 @@ Card.propTypes = {
         trackTimeMillis: PropTypes.number.isRequired,
         previewUrl: PropTypes.string.isRequired,
         trackId: PropTypes.number.isRequired,
-        is: PropTypes.bool.isRequired
+        isFavorite: PropTypes.bool.isRequired
     }),
     play: PropTypes.bool.isRequired,
     onPlay: PropTypes.func.isRequired,
