@@ -1,28 +1,23 @@
 const utils = {
     sidebarItems: [
         {
-            title: 'Login',
-            path: '/login',
-            iconType: 'user'
-        },
-        {
             title: 'Musicians',
-            path: '/musicians',
+            path: '/home/musicians',
             iconType: 'crown'
         },
         {
             title: 'Analytics',
-            path: '/analytics',
+            path: '/home/analytics',
             iconType: 'line-chart'
         },
         {
             title: 'Notes',
-            path: '/notes',
+            path: '/home/notes',
             iconType: 'form'
         },
         {
             title: 'Music',
-            path: '/music',
+            path: '/home/music',
             iconType: 'customer-service'
         }
     ],

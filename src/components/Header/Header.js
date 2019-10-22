@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import text from '../../constants/text';
 import './Header.css';
 
-const Header = ({userName}) => {
-
+const Header = ({userName, logout}) => {
     return (
         <header>
             <h1 className="headline">
@@ -14,7 +13,7 @@ const Header = ({userName}) => {
             </h1>
             <p>
                 {userName}
-                {userName ? <Icon type="logout"/> : userName}
+                {userName ? <Icon type="logout" onClick={logout}/> : userName}
             </p>
         </header>
     )

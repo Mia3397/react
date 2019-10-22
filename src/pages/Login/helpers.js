@@ -8,3 +8,7 @@ export const signIn = (name, email, password) => (dispatch) => {
     }));
     dispatch(action.signIn(name))
 };
+
+export const logout = () => (dispatch) => {
+    dispatch(action.logout())
+};

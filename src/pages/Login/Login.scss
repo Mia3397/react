@@ -1,24 +1,35 @@
-.sign_in {
-    width: 500px;
-    height: 300px;
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 0 auto;
+.login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    .ant-input {
-        margin-bottom: 20px;
+    h1 {
+        text-align: center;
     }
+    .sign_in {
+        width: 500px;
+        height: 300px;
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 0 auto;
 
-    .ant-input-affix-wrapper .ant-input-suffix {
-        top: 16px
-    }
+        .ant-input {
+            margin-bottom: 20px;
+        }
 
-    .sign_in_actions {
-        display: flex;
-        justify-content: space-between;
+        .ant-input-affix-wrapper .ant-input-suffix {
+            top: 16px
+        }
 
-        .ant-btn {
-            width: 45%;
+        .sign_in_actions {
+            display: flex;
+            justify-content: space-between;
+
+            .ant-btn {
+                width: 45%;
+            }
         }
     }
 }

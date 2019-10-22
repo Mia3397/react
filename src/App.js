@@ -1,28 +1,23 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {Musicians, Analytics, Notes, Music, Login} from './pages';
-import {Header, Sidebar} from './components';
-import connect from './connect';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {Login} from './pages';
+import Navigation from './Navigation';
 import './App.css';
 
-const App = (props) => (
+const App = () => {
+    const userName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).name : null;
+    console.log(userName);
+    return (
         <Router>
-            <Header userName={props.userName}/>
-            <main>
-                <Sidebar/>
-                <Route path="/login" exact component={Login}/>
-                <Route path="/musicians" exact component={Musicians}/>
-                <Route path="/analytics" exact component={Analytics}/>
-                <Route path="/notes" exact component={Notes}/>
-                <Route path="/music" exact component={Music}/>
-                <Route path="/" exact component={Login}/>
-            </main>
+            <Switch>
+                <Redirect exact from="/" to="/login"/>
+                {userName && <Redirect exact from="/login" to="/home"/>}
+                <Route path="/home" component={Navigation}/>
+                <Route path="/login" component={Login}/>
+            </Switch>
         </Router>
-);
-
-App.propTypes = {
-    userName: PropTypes.string
+    )
 };
 
-export default connect(App);
+
+export default App;

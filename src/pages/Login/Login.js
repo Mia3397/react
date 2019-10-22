@@ -28,13 +28,15 @@ class Login extends React.Component {
 
     signIn = (name, email, password) => () => {
         this.props.signIn(name, email, password);
+        this.props.history.push('/home/musicians')
     };
 
     render() {
         const {userName, email, password} = this.state;
+        console.log(this.props);
 
         return (
-            <div className="wrapper">
+            <div className="wrapper login">
                 <h1>Sign in</h1>
                 <div className="sign_in">
                     <Input
