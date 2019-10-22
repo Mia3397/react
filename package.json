@@ -5,6 +5,11 @@
   "dependencies": {
     "antd": "^3.23.2",
     "axios": "^0.19.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.16.0",
     "nanoid": "^2.1.1",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
@@ -23,10 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js --ext .js",
+    "lint:fix": "eslint src/* --ext .js --fix"
   },
   "browserslist": {
     "production": [
@@ -39,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "eslint-plugin-jsx-a11y": "^6.2.3"
+  },
+  "eslintIgnore": ["serviceWorker.js"]
 }

@@ -6,9 +6,9 @@ import analyticsReducer from './analytics/reducer';
 import loginReducer from './login/reducer';
 
 export default combineReducers({
-    sidebarReducer,
-    notesReducer,
-    musicReducer,
-    analyticsReducer,
-    loginReducer
-})
+  sidebarReducer,
+  notesReducer,
+  musicReducer,
+  analyticsReducer,
+  loginReducer
+});

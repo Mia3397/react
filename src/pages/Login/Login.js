@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, Button} from 'antd';
+import { Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 import connect from './connect';
 import text from '../../constants/text';
@@ -7,72 +7,73 @@ import './Login.scss';
 
 class Login extends React.Component {
     state = {
-        userName: null,
-        email: null,
-        password: null
+      userName: null,
+      email: null,
+      password: null
     };
 
-    onChange = ({target: {name, value}}) => {
-        this.setState({
-            [name]: value
-        })
+    onChange = ({ target: { name, value } }) => {
+      this.setState({
+        [name]: value
+      });
     };
 
     handleCancel = () => {
-        this.setState({
-            userName: null,
-            email: null,
-            password: null
-        })
+      this.setState({
+        userName: null,
+        email: null,
+        password: null
+      });
     };
 
-    signIn = (name, email, password) => () => {
-        this.props.signIn(name, email, password);
-        this.props.history.push('/home/musicians')
+    signIn = () => {
+      const { userName, email, password } = this.state;
+      const { signIn, history } = this.props;
+      signIn(userName, email, password);
+      history.push('/home/musicians');
     };
 
     render() {
-        const {userName, email, password} = this.state;
-        console.log(this.props);
+      const { userName, email, password } = this.state;
 
-        return (
-            <div className="wrapper login">
-                <h1>Sign in</h1>
-                <div className="sign_in">
-                    <Input
-                        placeholder={text.placeholderForUserInput}
-                        value={userName}
-                        name="userName"
-                        onChange={this.onChange}
-                    />
-                    <Input
-                        placeholder={text.placeholderForEmailInput}
-                        value={email}
-                        name="email"
-                        onChange={this.onChange}
-                    />
-                    <Input.Password
-                        placeholder={text.placeholderForPasswordInput}
-                        value={password}
-                        name="password"
-                        onChange={this.onChange}
-                    />
-                    <div className="sign_in_actions">
-                        <Button onClick={this.handleCancel}>
-                            {text.buttonCancel}
-                        </Button>
-                        <Button type="primary" onClick={this.signIn(userName, email, password)}>
-                            {text.buttonSignIn}
-                        </Button>
-                    </div>
-                </div>
+      return (
+        <div className="wrapper login">
+          <h1>Sign in</h1>
+          <div className="sign_in">
+            <Input
+              placeholder={text.placeholderForUserInput}
+              value={userName}
+              name="userName"
+              onChange={this.onChange}
+            />
+            <Input
+              placeholder={text.placeholderForEmailInput}
+              value={email}
+              name="email"
+              onChange={this.onChange}
+            />
+            <Input.Password
+              placeholder={text.placeholderForPasswordInput}
+              value={password}
+              name="password"
+              onChange={this.onChange}
+            />
+            <div className="sign_in_actions">
+              <Button onClick={this.handleCancel}>
+                {text.buttonCancel}
+              </Button>
+              <Button type="primary" onClick={this.signIn}>
+                {text.buttonSignIn}
+              </Button>
             </div>
-        )
+          </div>
+        </div>
+      );
     }
 }
 
 Login.propTypes = {
-    signIn: PropTypes.func
+  signIn: PropTypes.func.isRequired
 };
 
 export default connect(Login);
