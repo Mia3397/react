@@ -11,18 +11,20 @@ const Analytics = ({ artists }) => {
     R.values,
     R.map((it) => ({
       x: it.artistName,
-      y: it[counterName] ? it[counterName] : 0
+      y: it[counterName] || 0
     })),
-    R.filter((it) => it.y !== 0)
+    R.filter((it) => it.y)
   )(artists);
 
   const searchData = createData('searchCounter');
   const playData = createData('playCounter');
+  const showSearchChart = Boolean(searchData.length);
+  const showPlayedChart = Boolean(playData.length);
   return (
     <div className="wrapper">
       <h1>Analytics</h1>
       <div className="analytics">
-        {searchData.length
+        {showSearchChart
         && (
           <Chart
             data={searchData}
@@ -31,7 +33,7 @@ const Analytics = ({ artists }) => {
           />
         )}
 
-        {playData.length
+        {showPlayedChart
         && (
           <Chart
             data={playData}
