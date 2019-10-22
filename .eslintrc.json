@@ -1,0 +1,43 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "react/state-in-constructor": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "react/forbid-prop-types": "off",
+    "no-template-curly-in-string": 0,
+    "comma-dangle": "off",
+    "no-console": "warn",
+    "complexity": ["warn", 6],
+    "react/no-unused-prop-types": "warn",
+    "max-len": ["warn", 140],
+    "object-shorthand": "off",
+    "object-curly-newline": "off",
+    "global-require": "off",
+    "max-statements": ["warn", 20],
+    "function-paren-newline": ["error", "consistent"],
+    "react/prop-types": [0],
+    "no-use-before-define": ["error", { "functions": false }],
+    "import/extensions": 0,
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": 0,
+    "import/no-cycle": 0,
+    "import/no-unresolved": 0
+  },
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "App"]
+    },
+    "import/core-modules": ["labels", "lib"]
+  }
+}

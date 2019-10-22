@@ -1,4 +1,4 @@
-aside {
+.nav_bar {
     height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@ aside {
     border-right: 1px solid #b4afa4;
 }
 
-aside ul a {
+.nav_bar > ul > a {
     display: inline-block;
     width: 200px;
     padding: 10px 20px;
@@ -18,7 +18,7 @@ aside ul a {
     font-size: 20px;
 }
 
-aside button {
+.nav_bar > button {
     height: 50px;
     width: 100%;
     border-right: 1px solid #b4afa4;
@@ -30,20 +30,20 @@ aside button {
     cursor: pointer;
 }
 
-aside.open {
+.nav_bar.open {
     width: 200px;
 }
 
-aside.close, .close .link{
+.nav_bar.close, .close .link{
     width: 50px;
     padding: 0;
 }
 
-aside a:hover {
+.nav_bar > a:hover {
     color: #dfdad0;
 }
 
-aside .active-link {
+.nav_bar .active-link {
     border-right: 2px solid #000045;
     color: #000045;
 }

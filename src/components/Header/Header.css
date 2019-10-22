@@ -1,17 +1,21 @@
-header {
+#root > header {
     display: flex;
+    justify-content: space-between;
     background-color: #000045;
 }
 
-header .headline {
+header .headline, #root > header > p {
     color: #ffedef;
     font-size: 20px;
-    cursor: pointer;
     padding: 20px 50px 20px;
-
 }
 
-.headline .anticon  {
+header .headline, header > p > .anticon {
+    cursor: pointer;
+}
+
+.headline .anticon, p > .anticon  {
     margin-left: 10px;
 }
+
 

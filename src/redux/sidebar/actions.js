@@ -1,5 +1,5 @@
 import { TOGGLE_STATE } from './types';
 
 export const toggleStateSideBar = () => ({
-    type: TOGGLE_STATE
+  type: TOGGLE_STATE
 });
