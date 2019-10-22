@@ -1,30 +1,29 @@
 import React from 'react';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import * as R from 'ramda';
+import { Login } from './pages';
+import Navigation from './Navigation';
+import 'antd/dist/antd.css';
+import 'react-vis/dist/style.css';
 import './App.css';
-import './constants/text';
-import {Header, Sidebar} from './components';
-import {Musicians, Analytics, Notes, Music} from './pages';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import store from './redux/index';
 
-const rootStore = createStore(store, applyMiddleware(thunk));
+const App = () => {
+  const userName = R.pipe(
+    (it) => localStorage.getItem(it),
+    JSON.parse,
+    R.path(['name'])
+  )('user');
 
-const App = () => (
-    <Provider store={rootStore}>
-        <Router>
-            <Header/>
-            <main>
-                <Sidebar/>
-                <Route path="/musicians" exact component={Musicians}/>
-                <Route path="/analytics" exact component={Analytics}/>
-                <Route path="/notes" exact component={Notes}/>
-                <Route path="/music" exact component={Music}/>
-            </main>
-        </Router>
-    </Provider>
-);
-
+  return (
+    <Router>
+      <Redirect exact from="/" to="/login" />
+      {userName && <Redirect exact from="/login" to="/home" />}
+      <Switch>
+        <Route path="/home" component={Navigation} />
+        <Route path="/login" component={Login} />
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;
