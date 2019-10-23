@@ -26,6 +26,7 @@
     background-color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .player > .ant-btn.ant-btn-primary:hover {

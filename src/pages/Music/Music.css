@@ -19,6 +19,12 @@
   justify-content: center;
 }
 
+.error_feedback {
+  color: #b12827;
+  font-size: 20px;
+  text-align: center;
+}
+
 @media (max-width: 509px) {
   .filters > button {
     margin-top: 15px;

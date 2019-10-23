@@ -7,7 +7,7 @@ const parseDuration = (time) => {
 
 const parseDateRelease = (date) => new Date(date).toDateString().slice(4);
 
-const parseName = (name) => (name.length > 15 ? `${name.slice(0, 15)}...` : name);
+const parseName = (name = '') => (name.length > 15 ? `${name.slice(0, 15)}...` : name);
 
 const createReducer = (handleReducer, defaultState) => (state = defaultState, action) => {
   const handler = handleReducer[action.type];

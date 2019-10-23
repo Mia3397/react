@@ -16,7 +16,8 @@ class Music extends Component {
     loading: false,
     playing: false,
     trackId: '',
-    isOpenFavorites: false
+    isOpenFavorites: false,
+    isError: false
   };
 
   componentDidMount() {
@@ -46,8 +47,18 @@ class Music extends Component {
         ...params,
         term: value
       },
-      isOpenFavorites: false
-    }, this.getSongs);
+      isOpenFavorites: false,
+      isError: false
+    }, () => {
+      this.getSongs()
+        .catch(this.setError);
+    });
+  };
+
+  setError = () => {
+    this.setState({
+      isError: true
+    });
   };
 
   getSongs = async () => {
@@ -78,14 +89,34 @@ class Music extends Component {
     });
   };
 
-  render() {
+  renderSongs = () => {
     const { songs, addSongToFav, deleteFromFav } = this.props;
-    const { loading, playing, trackId, params: { term }, isOpenFavorites } = this.state;
     const favSongs = JSON.parse(localStorage.getItem('favoriteSongs')) || {};
+    const { playing, trackId, isOpenFavorites } = this.state;
+    return (
+      R.map((it) => (
+        <Card
+          item={{
+            ...it,
+            isFavorite: R.has(it.trackId, favSongs)
+          }}
+          play={playing && it.trackId === trackId}
+          key={it.trackId}
+          onPlay={this.onPlay(it.trackId, it.artistName)}
+          onStop={this.onStop}
+          addSongToFav={addSongToFav}
+          deleteFromFav={deleteFromFav}
+        />
+      ), isOpenFavorites ? R.values(favSongs) : songs)
+    );
+  };
+
+  render() {
+    const { loading, params: { term }, isOpenFavorites, isError } = this.state;
 
     return (
       <div className="wrapper">
-        <Spin spinning={loading}>
+        <Spin spinning={loading && !isError}>
           <h1>{isOpenFavorites ? text.favoritesHeadline : text.musicHeadline}</h1>
           <div className="filters">
             <Input.Search
@@ -103,22 +134,11 @@ class Music extends Component {
             </Button>
           </div>
 
-          <div className="cards">
-            {
-              R.map((it) => (
-                <Card
-                  item={{ ...it, isFavorite: R.has(it.trackId, favSongs) }}
-                  play={playing && it.trackId === trackId}
-                  key={it.trackId}
-                  onPlay={this.onPlay(it.trackId, it.artistName)}
-                  onStop={this.onStop}
-                  addSongToFav={addSongToFav}
-                  deleteFromFav={deleteFromFav}
-                />
-              ),
-              isOpenFavorites ? R.values(favSongs) : songs)
-            }
-          </div>
+          {
+            isError
+              ? <p className="error_feedback">Sorry, network error. Please try again.</p>
+              : <div className="cards">{this.renderSongs()}</div>
+          }
         </Spin>
       </div>
     );
