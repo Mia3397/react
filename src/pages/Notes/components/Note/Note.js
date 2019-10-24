@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'antd';
 import PropTypes from 'prop-types';
 import { EditContainer } from '../index';
@@ -7,85 +7,69 @@ import utils from '../../../../constants/utils';
 import buttonText from '../../../../constants/text';
 import './Note.scss';
 
-class Note extends React.Component {
-    state = {
-      type: null,
-      value: ''
-    };
+const Note = ({ id, updateNoteById, deleteNote, title, date, text }) => {
+  const [filledType, setFilledType] = useState(null);
+  const [filledValue, setFilledValue] = useState('');
 
-    onEdit = (type, value) => () => {
-      this.setState({
-        type,
-        value
-      });
-    };
+  const onEdit = (type, value) => () => {
+    setFilledType(type);
+    setFilledValue(value);
+  };
 
-    onChange = ({ target: { value } }) => {
-      this.setState({
-        value
-      });
-    };
+  const onChange = ({ target: { value } }) => {
+    setFilledValue(value);
+  };
 
-    onUpdate = () => {
-      const { type, value } = this.state;
-      const { id, updateNoteById } = this.props;
-      updateNoteById(id, value, type);
-      this.setState({
-        value: '',
-        type: null
-      });
-    };
+  const onUpdate = () => {
+    updateNoteById(id, filledValue, filledType);
+    setFilledValue('');
+    setFilledType(null);
+  };
 
-    deleteNote = () => {
-      const { id, deleteNote } = this.props;
-      deleteNote(id);
-    };
+  const onDeleteNote = () => {
+    deleteNote(id);
+  };
 
-    render() {
-      const { type, value } = this.state;
-      const { title, date, text } = this.props;
-
-      return (
-        <div className="note">
-          <header>
-            <div className="note-info">
-              <EditContainer
-                type={type}
-                containerType={utils.types.title}
-                value={value}
-                onChange={this.onChange}
-                onUpdate={this.onUpdate}
-                text={title}
-                onEdit={this.onEdit}
-              />
-              <EditContainer
-                type={type}
-                containerType={utils.types.date}
-                value={value}
-                onChange={this.onChange}
-                onUpdate={this.onUpdate}
-                text={date}
-                onEdit={this.onEdit}
-              />
-            </div>
-            <Button type="primary" onClick={this.deleteNote}>
-              {buttonText.buttonDelete}
-            </Button>
-          </header>
-
+  return (
+    <div className="note">
+      <header>
+        <div className="note-info">
           <EditContainer
-            type={type}
-            containerType={utils.types.text}
-            value={value}
-            onChange={this.onChange}
-            onUpdate={this.onUpdate}
-            text={text}
-            onEdit={this.onEdit}
+            type={filledType}
+            containerType={utils.types.title}
+            value={filledValue}
+            onChange={onChange}
+            onUpdate={onUpdate}
+            text={title}
+            onEdit={onEdit}
+          />
+          <EditContainer
+            type={filledType}
+            containerType={utils.types.date}
+            value={filledValue}
+            onChange={onChange}
+            onUpdate={onUpdate}
+            text={date}
+            onEdit={onEdit}
           />
         </div>
-      );
-    }
-}
+        <Button type="primary" onClick={onDeleteNote}>
+          {buttonText.buttonDelete}
+        </Button>
+      </header>
+
+      <EditContainer
+        type={filledType}
+        containerType={utils.types.text}
+        value={filledValue}
+        onChange={onChange}
+        onUpdate={onUpdate}
+        text={text}
+        onEdit={onEdit}
+      />
+    </div>
+  );
+};
 
 Note.propTypes = {
   title: PropTypes.string.isRequired,

@@ -1,77 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from 'antd';
-import * as R from 'ramda';
 import { Avatar } from '../index';
 import Player from '../Player/Player';
 import F from '../../utils/func';
 import './Card.css';
 
 
-class Card extends React.Component {
-    state = {
-      isFav: R.path(['item', 'isFavorite'], this.props)
-    };
+const Card = ({ item, addSongToFav, deleteFromFav, play, onPlay, onStop }) => {
+  const {
+    artworkUrl100,
+    artistName,
+    trackName,
+    collectionName,
+    country,
+    releaseDate,
+    trackTimeMillis,
+    previewUrl,
+    trackId,
+    isFavorite
+  } = item;
 
-    addToFavorite = (song) => () => {
-      const { addSongToFav } = this.props;
-      this.setState({
-        isFav: true
-      });
-      addSongToFav(song);
-    };
+  const [isFav, setIsFav] = useState(isFavorite);
 
-    deleteFromFavorite = (id) => () => {
-      const { deleteFromFav } = this.props;
-      this.setState({
-        isFav: false
-      });
-      deleteFromFav(id);
-    };
+  const addToFavorite = (song) => () => {
+    setIsFav(true);
+    addSongToFav(song);
+  };
 
-    render() {
-      const { item, play, onPlay, onStop } = this.props;
-      const {
-        artworkUrl100,
-        artistName,
-        trackName,
-        collectionName,
-        country,
-        releaseDate,
-        trackTimeMillis,
-        previewUrl,
-        trackId
-      } = item;
-      const { isFav } = this.state;
+  const deleteFromFavorite = (id) => () => {
+    setIsFav(false);
+    deleteFromFav(id);
+  };
 
-      return (
-        <div className="card">
-          <div className="info">
-            <Avatar url={artworkUrl100} />
-            <div className="text">
-              <h2>{`${F.parseName(artistName)} - ${F.parseName(trackName)}`}</h2>
-              <p>{`Album: ${F.parseName(collectionName)}`}</p>
-              <p>{`Country: ${country}`}</p>
-              <p>{`Date: ${F.parseDateRelease(releaseDate)}`}</p>
-              <p>{`Duration: ${F.parseDuration(trackTimeMillis)}`}</p>
-            </div>
-            <Icon
-              type="heart"
-              onClick={isFav ? this.deleteFromFavorite(trackId) : this.addToFavorite(item)}
-              theme={isFav ? 'filled' : ''}
-            />
-          </div>
-          <Player
-            url={previewUrl}
-            track={trackId}
-            play={play}
-            onPlay={onPlay}
-            onStop={onStop}
-          />
+  return (
+    <div className="card">
+      <div className="info">
+        <Avatar url={artworkUrl100} />
+        <div className="text">
+          <h2>{`${F.parseName(artistName)} - ${F.parseName(trackName)}`}</h2>
+          <p>{`Album: ${F.parseName(collectionName)}`}</p>
+          <p>{`Country: ${country}`}</p>
+          <p>{`Date: ${F.parseDateRelease(releaseDate)}`}</p>
+          <p>{`Duration: ${F.parseDuration(trackTimeMillis)}`}</p>
         </div>
-      );
-    }
-}
+        <Icon
+          type="heart"
+          onClick={isFav ? deleteFromFavorite(trackId) : addToFavorite(item)}
+          theme={isFav ? 'filled' : ''}
+        />
+      </div>
+      <Player
+        url={previewUrl}
+        track={trackId}
+        play={play}
+        onPlay={onPlay}
+        onStop={onStop}
+      />
+    </div>
+  );
+};
+
 
 Card.propTypes = {
   item: PropTypes.shape({
