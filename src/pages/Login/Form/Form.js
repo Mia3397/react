@@ -2,26 +2,10 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import RenderField from '../RenderField/RenderField';
+import { validate, asyncValidate } from '../../../utils/validations';
 import text from '../../../constants/text';
 import './Form.scss';
 
-const validate = ({ username, email, password }) => {
-  const errors = {};
-  if (!username) {
-    errors.username = text.errorRequired;
-  }
-  if (!email) {
-    errors.email = text.errorRequired;
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-    errors.email = text.errorEmail;
-  }
-  if (!password) {
-    errors.password = text.errorRequired;
-  } else if (password.length < 8) {
-    errors.password = text.errorPassword;
-  }
-  return errors;
-};
 
 const Form = ({ reset, handleSubmit, pristine, submitting, invalid }) => (
   <form onSubmit={handleSubmit}>
@@ -70,5 +54,7 @@ Form.propTypes = {
 
 export default reduxForm({
   form: 'loginForm',
-  validate
+  validate,
+  asyncValidate,
+  asyncBlurFields: ['username']
 })(Form);

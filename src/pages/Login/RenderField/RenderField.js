@@ -18,7 +18,7 @@ const RenderField = ({
   return (
     <div>
       <input {...input} type={type} placeholder={label} />
-      <span>{touched && fieldError}</span>
+      <span className="error_message">{touched && fieldError}</span>
     </div>
   );
 };
