@@ -1,0 +1,41 @@
+form {
+    width: 500px;
+    height: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    .sign_in_actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+    }
+
+    button {
+        width: 40%;
+        height: 40px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+
+        &[type="button"] {
+            background-color: white;
+            border: 1px solid #bababa;
+
+            &:hover {
+                border: 1px solid #46a6ff;
+                color: #46a6ff;
+            }
+        }
+
+        &[type="submit"] {
+            background-color: #000045;
+            color: white;
+        }
+    }
+}
+

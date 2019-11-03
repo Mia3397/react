@@ -26,7 +26,10 @@ const text = {
   closeFavorites: 'Go to my Favorites',
   openFavorites: 'My Favorites',
   searchAnalytics: 'Search Analytics',
-  playAnalytics: 'Play Analytics'
+  playAnalytics: 'Play Analytics',
+  errorRequired: 'This field is required!',
+  errorEmail: 'Invalid email address!',
+  errorPassword: 'The password must be allowed at least 8 characters long.'
 };
 
 export default text;
