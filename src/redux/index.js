@@ -1,3 +1,4 @@
+import { reducer as reduxFormReducer } from 'redux-form';
 import { combineReducers } from 'redux';
 import sidebarReducer from './sidebar/reducer';
 import notesReducer from './notes/reducer';
@@ -10,5 +11,6 @@ export default combineReducers({
   notesReducer,
   musicReducer,
   analyticsReducer,
-  loginReducer
+  loginReducer,
+  form: reduxFormReducer
 });
