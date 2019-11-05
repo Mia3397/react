@@ -2,13 +2,12 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import RenderField from '../RenderField/RenderField';
-import { validate, asyncValidate } from '../../../utils/validations';
 import text from '../../../constants/text';
 import './Form.scss';
 
 
-const Form = ({ reset, handleSubmit, pristine, submitting, invalid }) => (
-  <form onSubmit={handleSubmit}>
+const Form = ({ reset, handleSubmit, pristine, submitting, submitValidate }) => (
+  <form onSubmit={handleSubmit(submitValidate)}>
     <Field
       component={RenderField}
       name="username"
@@ -36,7 +35,7 @@ const Form = ({ reset, handleSubmit, pristine, submitting, invalid }) => (
       >
         {text.buttonCancel}
       </button>
-      <button type="submit" disabled={invalid}>
+      <button type="submit" disabled={submitting}>
         {text.buttonSignIn}
       </button>
     </div>
@@ -48,13 +47,9 @@ Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
-  invalid: PropTypes.bool.isRequired,
 };
 
 
 export default reduxForm({
-  form: 'loginForm',
-  validate,
-  asyncValidate,
-  asyncBlurFields: ['username']
+  form: 'loginForm'
 })(Form);
